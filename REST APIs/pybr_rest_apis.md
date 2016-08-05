@@ -1,7 +1,7 @@
 class: center, middle, inverse
 # Arquitetura, Especificação e Implementação de APIs REST
 
-### por [Felipe V. R.](http://twitter.com/gnab)
+### por [Felipe V. R.](https://felipevr.com)
 ---
 
 # Agenda
@@ -16,8 +16,14 @@ class: center, middle, inverse
 * Heroku, EC2, EBS, Lambda - Colocando seu código no ar
 * AB - Teste de carga
 ---
-
+class: center, middle
 # API? REST??
+
+---
+## API
+
+* Um conjunto de estruturas, operações, protocolos e ferramentas para construção de software
+
 ---
 # GET & 404 - Verbos e códigos HTTP
 ---
