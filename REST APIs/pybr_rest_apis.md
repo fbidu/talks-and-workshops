@@ -1,6 +1,7 @@
-class: center, middle
+class: center, middle, inverse
 # Arquitetura, Especificação e Implementação de APIs REST
 
+### por [Felipe V. R.](http://twitter.com/gnab)
 ---
 
 # Agenda
