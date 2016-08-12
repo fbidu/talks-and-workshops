@@ -6,45 +6,15 @@
     <meta name="description" content="Slides for a workshop on REST APIs" />
     <title>Arquitetura, Especificação e Implementação de APIs REST</title>
     <style>
-        @import 'https://fonts.googleapis.com/css?family=Lobster|Kelly+Slab|Raleway:700|Roboto+Mono';
-        .vintage
-        {
-            background: #632F53;
-            color: #88A65E;
-            font-family: 'Raleway', sans-serif;
-            line-height: 2em;
-            font-size: 1.5em;
-        }
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif);
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
 
-        .splash h1{
-            font-family: 'Lobster', cursive; !important;
-        }
-
-      .vintage h1, .vintage h2{
-          color: #FDE6BD;
-          line-height: 1.3em;
-          font-size: 0.5em;
-          font-family: 'Kelly Slab';
+      body {
+        font-family: 'Droid Serif';
+        line-height: 2em;
+        font-size: 1.5em;
       }
-
-      .vintage h3
-      {
-          font-family: 'Raleway', sans-serif;
-          font-size: 0.8em;
-          line-height: 1em;
-      }
-
-      .vintage a {
-          color: #5E8C6A;
-          text-decoration: none;
-      }
-      code {
-        background: #e7e8e2;
-        border-radius: 5px;
-        line-height: 1.5em;
-      }
-      .remark-code, .remark-inline-code { font-family: 'Roboto Mono'; }
-      .remark-code-line-highlighted     { background-color: #373832; }
       h1, h2, h3 {
         font-family: 'Yanone Kaffeesatz';
         font-weight: 400;
@@ -60,7 +30,16 @@
       li p { line-height: 1.25em; }
       .red { color: #fa0000; }
       .large { font-size: 2em; }
-
+      a, a > code {
+        color: rgb(249, 38, 114);
+        text-decoration: none;
+      }
+      code {
+        background: #e7e8e2;
+        border-radius: 5px;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+      .remark-code-line-highlighted     { background-color: #373832; }
       .pull-left {
         float: left;
         width: 47%;
@@ -79,16 +58,75 @@
         font-size: 0.9em;
         padding: 15px;
       }
+      .inverse {
+        background: #272822;
+        color: #777872;
+        /*text-shadow: 0 0 20px #333;*/
+      }
+      .inverse h1, .inverse h2 {
+        color: #f3f3f3;
+        line-height: 0.8em;
+      }
 
+      /* Slide-specific styling */
+      #slide-inverse .footnote {
+        bottom: 12px;
+        left: 20px;
+      }
+      #slide-how .slides {
+        font-size: 0.9em;
+        position: absolute;
+        top:  151px;
+        right: 140px;
+      }
+      #slide-how .slides h3 {
+        margin-top: 0.2em;
+      }
+      #slide-how .slides .first, #slide-how .slides .second {
+        padding: 1px 20px;
+        height: 90px;
+        width: 120px;
+        /*-moz-box-shadow: 0 0 10px #777;
+        -webkit-box-shadow: 0 0 10px #777;
+        box-shadow: 0 0 10px #777;*/
+      }
+      #slide-how .slides .first {
+        background: #fff;
+        position: absolute;
+        top: 20%;
+        left: 20%;
+        z-index: 1;
+      }
+      #slide-how .slides .second {
+        position: relative;
+        background: #fff;
+        z-index: 0;
+      }
+
+      /* Two-column layout */
+      .left-column {
+        color: #777;
+        width: 20%;
+        height: 92%;
+        float: left;
+      }
+        .left-column h2:last-of-type, .left-column h3:last-child {
+          color: #000;
+        }
+      .right-column {
+        width: 75%;
+        float: right;
+        padding-top: 1em;
+      }
     </style>
   </head>
   <body>
     <textarea id="source">
-class: center, middle, vintage, splash
+class: center, middle, inverse, splash
 # Arquitetura, Especificação e Implementação de APIs REST
-### por [Felipe V. R.](https://felipevr.com)
+### por [Felipe V. R.](http://felipevr.com)
 ---
-class: middle, vintage
+class: middle, inverse
 # Agenda
 
 * API? REST?? — Motivação
@@ -101,24 +139,24 @@ class: middle, vintage
 * Heroku, EC2, EBS, Lambda — Colocando seu código no ar
 * AB — Teste de carga
 ---
-class: center, middle, vintage
+class: center, middle, inverse
 # API? REST??
 ### Motivação
 ---
-class: vintage
+class: inverse
 # API
 - Um conjunto de estruturas, operações, protocolos e ferramentas para construção de software
 - Uma API define um *contrato*, um pacto entre o usuário da API e o programador
 - Permite que outros programas façam uso das suas características
 ---
-class: vintage
+class: inverse
 ## Uma Cafeteira
 - Faz *só um trabalho* - café
 - Exige o *mínimo necessário* - água, pó de café e energia
 - Depois de alimentada com o input necessário, faz o trabalho
 - Entrega o *resultado esperado*. Nem mais, nem menos
 ---
-class: vintage
+class: inverse
 ## E uma cafeteira *com API*
 - De alguma forma mágica nós automatizamos nossa cafeteira e ensinamos Python para ela
 ```python
@@ -128,7 +166,7 @@ cafeteira.make_coffee()
 - Agora nós temos *acesso programático* para nossa cafeteira
 - Podemos utilizar sua funcionalidade *em nossos códigos!*
 ---
-class: vintage, middle
+class: inverse, middle
 ```python
 # 8h da manhã, hora do café!
 if hora_atual == 8:
@@ -140,52 +178,52 @@ if n % 2:
     cafeteira.make_coffee()
 ```
 ---
-class: vintage
+class: inverse
 # APIs Web
 - Permitem que a gente faça acesso a **recursos remotos**
 - Podemos utilizar de funcionalidades **já existentes** em outros serviços disponíveis na Internet
 - Tornam a Internet **programável**
 ---
-class: vintage
+class: inverse
 ## Exemplos
 - placekitten - Retorna uma imagens de gatinhos, nas dimensões pedidas [`http://placekitten.com/800/600`](http://placekitten.com/800/600)
 - ipify - Retorna o seu endereço de IP na Internet [`https://api.ipify.org/`](https://api.ipify.org/)
 - mathjs - Faz cálculos matemáticos [`http://api.mathjs.org/v1/?expr=2*7`](http://api.mathjs.org/v1/?expr=2*7)
 ---
-class: vintage
+class: inverse
 ## Exemplos
 - [APIs do Twitter](https://dev.twitter.com/rest/public) - Permitem que você interaja com o serviço de forma bastante ampla - poste novos tweets, busque por tweets, etc
 - [Facebook Graph API](https://developers.facebook.com/docs/graph-api) - Analogamente à API do Twitter, permite que você execute ações dentro do Facebok diretamente do seu código - Publique status, faça upload de imagens, determine se duas pessoas são amigos, liste os eventos que a pessoa foi convidada, etc
 ---
-class: vintage
+class: inverse
 # REST
 - R
 ---
-class: vintage, middle, center
+class: inverse, middle, center
 # GET &amp; 404
 ### Verbos e códigos HTTP
 ---
-class: vintage, middle, center
+class: inverse, middle, center
 # JSON &amp; YAML
 ### Comunicação
 ---
-class: vintage, middle, center
+class: inverse, middle, center
 # OAUTH &amp; JWT
 ### Autenticação
 ---
-class: vintage, middle, center
+class: inverse, middle, center
 # Blueprint &amp; Swagger
 ### Documentação
 ---
-class: vintage, middle, center
+class: inverse, middle, center
 # Django, Flask &amp; *Pythonicidade*
 ### Implementação
 ---
-class: vintage, middle, center
+class: inverse, middle, center
 # Py.test, doctest &amp; unittest
 ### Testando seu código
 ---
-class: vintage
+class: inverse
 ## hai
 ```python
 class A(model):
@@ -196,11 +234,11 @@ def hello():
     print('Hello, world!')
 ```
 ---
-class: vintage, middle, center
+class: inverse, middle, center
 # Heroku, EC2, EBS, Lambda
 ### Colocando seu código no ar
 ---
-class: vintage, middle, center
+class: inverse, middle, center
 # AB
 ### Teste de carga
 
