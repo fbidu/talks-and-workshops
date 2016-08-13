@@ -9,8 +9,8 @@
         @import 'https://fonts.googleapis.com/css?family=Lobster|Kelly+Slab|Raleway:700|Roboto+Mono';
         .vintage
         {
-            background: #632F53;
-            color: #88A65E;
+            background: #425454;
+            color: #F4EEB4;
             font-family: 'Raleway', sans-serif;
             line-height: 2em;
             font-size: 1.5em;
@@ -21,7 +21,7 @@
         }
 
       .vintage h1, .vintage h2{
-          color: #FDE6BD;
+          color: #ABC39F;
           line-height: 1.3em;
           font-size: 0.5em;
           font-family: 'Kelly Slab';
@@ -35,7 +35,7 @@
       }
 
       .vintage a {
-          color: #5E8C6A;
+          color: #55897D;
           text-decoration: none;
       }
       code {
@@ -86,7 +86,7 @@
     <textarea id="source">
 class: center, middle, vintage, splash
 # Arquitetura, Especificação e Implementação de APIs REST
-### por [Felipe V. R.](https://felipevr.com)
+### por [Felipe Videira](https://felipevr.com)
 ---
 class: middle, vintage
 # Agenda
@@ -148,7 +148,7 @@ class: vintage
 ---
 class: vintage
 ## Exemplos
-- placekitten - Retorna uma imagens de gatinhos, nas dimensões pedidas [`http://placekitten.com/800/600`](http://placekitten.com/800/600)
+- placekitten - Retorna imagens de gatinhos, nas dimensões pedidas [`http://placekitten.com/800/600`](http://placekitten.com/800/600)
 - ipify - Retorna o seu endereço de IP na Internet [`https://api.ipify.org/`](https://api.ipify.org/)
 - mathjs - Faz cálculos matemáticos [`http://api.mathjs.org/v1/?expr=2*7`](http://api.mathjs.org/v1/?expr=2*7)
 ---
@@ -159,7 +159,63 @@ class: vintage
 ---
 class: vintage
 # REST
-- R
+- *Representational State Transfer* - Transferência de Estado de Representação
+---
+class: vintage, middle, center
+# Hein?
+---
+class: vintage
+# REST
+- É *o* padrão desejável de *arquitetura da Internet*
+- Define uma série de regras que os componentes de um sistema Web 'ideal' devem seguir
+- Ao seguir estas regras, o sistema ganha diversas vantagens como simplicidade, escalabilidade,
+portabilidade, estabilidade
+---
+class: vintage
+# REST
+- Define 5 elementos básicos
+1. Recurso
+2. Identificador de Recurso
+3. Representação
+4. Metadados da Representação
+5. Dados de Controle
+---
+class: vintage
+# REST
+### Recursos e Identificadores de Recurso
+- **Qualquer informação nomeável** pode ser considerado um "recurso"
+uma imagem, um documento, uma pessoa, um serviço, uma coleção de outros recursos
+- O Identificador de Recurso é uma informação - por exemplo um nome - que é **mapeado para o recurso em si**
+- Por mais que o Recurso em si possa **mudar ao longo do tempo**, o Identificador **sempre** aponta para ele
+---
+class: vintage
+# REST
+## Recursos e Identificadores de Recurso
+- **Identificador** - Presidente dos EUA
+- **Recurso** - Barack Obama
+- Ano que vem, esse Identificador não apontará mais para *Barack Obama* mas
+ainda apontará para seja lá quem for o presidente
+---
+class: vintage
+# REST
+### Recursos e Identificadores de Recurso
+- **Identificador** - Tony Ramos
+- **Recurso** - Tony Ramos
+- Este Identificador sempre irá mapear para a mesma pessoa
+---
+class: vintage
+# REST
+### Recursos e Identificadores de Recurso
+- **Identificador** - Países que são membros da União Europeia
+- **Recurso** - [França, Alemanha, Itália, Espanha...]
+- Este Identificador aponta para uma lista de Recursos. Quando a Inglaterra
+completar sua saída da UE, a lista mudará mas o Identificador continuará
+apontando para o lugar certo
+---
+class: vintage
+# REST
+## Recursos e Identificadores de Recurso
+
 ---
 class: vintage, middle, center
 # GET &amp; 404
