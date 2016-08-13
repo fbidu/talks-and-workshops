@@ -308,9 +308,10 @@ class: vintage
 class: vintage
 # REST
 ### Metadados da Representação
-- O cliente pode guardar a representação até a data especificada e, caso queira
-acessar esse recurso novamente, pode determinar se é necessário fazer a chamada
-ao servidor mais uma vez ou se pode simplesmente usar a representação armazenada
+- O cliente guarda a representação até a data especificada
+- Caso queira acessar esse recurso novamente, verifica se o conteúdo já 'venceu'
+- Se o conteúdo ainda é válido, o cliente economiza recursos pois pode utilizar
+a representação armazenada ao invés de pedir uma nova
 ---
 class: vintage, middle, center
 # GET &amp; 404
