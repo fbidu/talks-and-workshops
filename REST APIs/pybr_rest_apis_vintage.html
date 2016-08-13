@@ -6,7 +6,7 @@
     <meta name="description" content="Slides for a workshop on REST APIs" />
     <title>Arquitetura, Especificação e Implementação de APIs REST</title>
     <style>
-        @import 'https://fonts.googleapis.com/css?family=Lobster|Kelly+Slab|Raleway:700|Roboto+Mono';
+        @import 'https://fonts.googleapis.com/css?family=Lobster|Kelly+Slab|Raleway|Roboto+Mono';
         .vintage
         {
             background: #425454;
@@ -190,7 +190,7 @@ uma imagem, um documento, uma pessoa, um serviço, uma coleção de outros recur
 ---
 class: vintage
 # REST
-## Recursos e Identificadores de Recurso
+### Recursos e Identificadores de Recurso
 - **Identificador** - Presidente dos EUA
 - **Recurso** - Barack Obama
 - Ano que vem, esse Identificador não apontará mais para *Barack Obama* mas
@@ -214,8 +214,103 @@ apontando para o lugar certo
 ---
 class: vintage
 # REST
-## Recursos e Identificadores de Recurso
+### Recursos e Identificadores de Recurso
+- **Identificador** - [http://ecorp.com/relatorios_financeiros/relatorio_atual](http://ecorp.com/relatorios_financeiros/relatorio_atual)
+- **Recurso** - O relatório financeiro do ano atual
+- Independente do ano em que estamos, obteremos o relatório corrente
+---
+class: vintage
+# REST
+### Recursos e Identificadores de Recurso
+- **Identificador** - [http://ecorp.com/relatorios_financeiros/relatorio_2010](http://ecorp.com/relatorios_financeiros/relatorio_2010)
+- **Recurso** - O relatório financeiro do ano de 2010
+- Sempre obteremos o relatório de 2010
+---
+class: vintage
+# REST
+### Recursos e Identificadores de Recurso
+- Seja lá quem nomeou o Recurso é responsável por garantir o mapeamento entre o
+Identificador e o Recurso em si!
+- Falhas neste mapeamento pode levar a inconsistências e a erros, como o famoso
+erro **404 Não Encontrado**, onde um Identificador não é mapeado para recurso algum
+---
+class: vintage
+# REST
+### Representações de Recursos
+- É uma captura do estado atual ou desejado de um Recurso
+---
+class: vintage
+# REST
+### Representações de Recursos
+- **Identificador** - Logo do Python
+-  **Representação**:
 
+![python logo](img/python-logo.png)
+---
+class: vintage
+# REST
+### Representações de Recursos
+- **Identificador** - Logo do Python em Preto
+-  **Representação**:
+
+![python logo black](img/python-logo-black.png)
+---
+class: vintage
+# REST
+### Metadados da Representação
+- São informações que qualificam a Representação oferecida
+- Deve ser apresentado em pares de chaves e valores, como num dicionário
+- Podem incluir informações como o formato da representação, o tamanho, sua
+validade, etc
+---
+class: vintage
+# REST
+### Metadados da Representação
+.pull-left[
+-  **Representação**:
+
+![python logo](img/python-logo.png)
+]
+.pull-right[
+- **Metadados**:
+```python
+    'tipo': 'PNG',
+    'tamanho': '8.6kB'
+```
+]
+---
+class: vintage
+# REST
+### Metadados da Representação
+- Também podemos oferecer dados que permitem ao cliente determinar a 'validade'
+daquela representação
+- Dessa forma o cliente pode fazer um *caching* local do recurso e possivelmente
+economizar recursos computacionais se for pedir pelo mesmo recurso mais de uma vez
+---
+class: vintage
+# REST
+### Metadados da Representação
+.pull-left[
+- **Identificador:** Foto do presidente dos EUA
+- **Representação**:
+
+![presidente dos EUA](img/obama.jpg)
+]
+.pull-right[
+- **Metadados**:
+```python
+    'tipo': 'JPG',
+    'tamanho': '13.5kB',
+    'validade': '20/01/2017'
+```
+]
+---
+class: vintage
+# REST
+### Metadados da Representação
+- O cliente pode guardar a representação até a data especificada e, caso queira
+acessar esse recurso novamente, pode determinar se é necessário fazer a chamada
+ao servidor mais uma vez ou se pode simplesmente usar a representação armazenada
 ---
 class: vintage, middle, center
 # GET &amp; 404
