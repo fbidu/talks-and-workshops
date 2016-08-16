@@ -260,8 +260,7 @@ class: vintage
 ### Metadados da Representação
 - São informações que qualificam a Representação oferecida
 - Deve ser apresentado em pares de chaves e valores, como num dicionário
-- Podem incluir informações como o formato da representação, o tamanho, sua
-validade, etc
+- Podem incluir informações como o formato da representação, o tamanho, etc
 ---
 class: vintage
 # REST
@@ -281,7 +280,8 @@ class: vintage
 ---
 class: vintage
 # REST
-### Metadados da Representação
+### Metadados de Controle
+- Modificam o comportamento
 - Também podemos oferecer dados que permitem ao cliente determinar a 'validade'
 daquela representação
 - Dessa forma o cliente pode fazer um *caching* local do recurso e possivelmente
@@ -289,7 +289,7 @@ economizar recursos computacionais se for pedir pelo mesmo recurso mais de uma v
 ---
 class: vintage
 # REST
-### Metadados da Representação
+### Metadados de Controle
 .pull-left[
 - **Identificador:** Foto do presidente dos EUA
 - **Representação**:
@@ -307,7 +307,7 @@ class: vintage
 ---
 class: vintage
 # REST
-### Metadados da Representação
+### Metadados de Controle - Cacheamento
 - O cliente guarda a representação até a data especificada
 - Caso queira acessar esse recurso novamente, verifica se o conteúdo já 'venceu'
 - Se o conteúdo ainda é válido, o cliente economiza recursos pois pode utilizar
