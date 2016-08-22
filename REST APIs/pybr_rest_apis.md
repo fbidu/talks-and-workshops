@@ -79,14 +79,14 @@ class: vintage, middle, center
 # Hein?
 ---
 class: vintage
-# REST
+## REST
 - É o **padrão desejável** de **arquitetura da Internet**
 - Define uma série de regras que os componentes de um **sistema Web ideal** devem seguir
 - Ao seguir estas regras, o sistema ganha diversas vantagens como **simplicidade**, **escalabilidade**,
 **portabilidade**, **estabilidade**
 ---
 class: vintage
-# REST
+## REST
 - Define 5 elementos básicos
 1. Recurso
 2. Identificador de Recurso
@@ -95,7 +95,7 @@ class: vintage
 5. Dados de Controle
 ---
 class: vintage
-# REST
+## REST
 ### Recursos e Identificadores de Recurso
 - **Qualquer informação nomeável** pode ser considerado um "recurso" -
 uma imagem, um documento, uma pessoa, um serviço, uma coleção de outros recursos
@@ -103,7 +103,7 @@ uma imagem, um documento, uma pessoa, um serviço, uma coleção de outros recur
 - Por mais que o Recurso em si possa **mudar ao longo do tempo**, o Identificador **sempre** aponta para ele
 ---
 class: vintage
-# REST
+## REST
 ### Recursos e Identificadores de Recurso
 - **Identificador** — Presidente dos EUA
 - **Recurso** — Barack Obama
@@ -111,14 +111,14 @@ class: vintage
 ainda apontará para seja lá quem for o presidente
 ---
 class: vintage
-# REST
+## REST
 ### Recursos e Identificadores de Recurso
 - **Identificador** — Tony Ramos
 - **Recurso** — Tony Ramos
 - Este Identificador sempre irá mapear para a mesma pessoa
 ---
 class: vintage
-# REST
+## REST
 ### Recursos e Identificadores de Recurso
 - **Identificador** — Países que são membros da União Europeia
 - **Recurso** — [França, Alemanha, Itália, Espanha...]
@@ -127,21 +127,21 @@ completar sua saída da UE, a lista mudará mas o Identificador continuará
 apontando para o lugar certo
 ---
 class: vintage
-# REST
+## REST
 ### Recursos e Identificadores de Recurso
 - **Identificador** — [`http://ecorp.com/financeiro/relatorio_atual`](http://ecorp.com/financeiro/relatorio_atual)
 - **Recurso** — O relatório financeiro do ano atual
 - Independente do ano em que estamos, obteremos o relatório corrente
 ---
 class: vintage
-# REST
+## REST
 ### Recursos e Identificadores de Recurso
 - **Identificador** — [`http://ecorp.com/financeiro/relatorio_2010`](http://ecorp.com/financeiro/relatorio_2010)
 - **Recurso** — O relatório financeiro do ano de 2010
 - Sempre obteremos o relatório de 2010
 ---
 class: vintage
-# REST
+## REST
 ### Recursos e Identificadores de Recurso
 - Seja lá quem nomeou o Recurso é responsável por garantir o mapeamento entre o
 Identificador e o Recurso em si!
@@ -149,12 +149,12 @@ Identificador e o Recurso em si!
 erro **404 Não Encontrado**, onde um Identificador não é mapeado para recurso algum
 ---
 class: vintage
-# REST
+## REST
 ### Representações de Recursos
 - É uma captura do estado atual ou desejado de um Recurso
 ---
 class: vintage
-# REST
+## REST
 ### Representações de Recursos
 - **Identificador** — Logo do Python
 -  **Representação**:
@@ -162,7 +162,7 @@ class: vintage
 ![python logo](img/python-logo.png)
 ---
 class: vintage
-# REST
+## REST
 ### Representações de Recursos
 - **Identificador** — Logo do Python em Preto
 -  **Representação**:
@@ -170,14 +170,14 @@ class: vintage
 ![python logo black](img/python-logo-black.png)
 ---
 class: vintage
-# REST
+## REST
 ### Metadados da Representação
 - São informações que qualificam a Representação oferecida
 - Deve ser apresentado em pares de chaves e valores, como num dicionário
 - Podem incluir informações como o formato da representação, o tamanho, etc
 ---
 class: vintage
-# REST
+## REST
 ### Metadados da Representação
 .pull-left[
 -  **Representação**:
@@ -193,7 +193,7 @@ class: vintage
 ]
 ---
 class: vintage
-# REST
+## REST
 ### Dados de Controle
 - Modificam o comportamento
 - Também podemos oferecer dados que permitem ao cliente determinar a 'validade'
@@ -202,7 +202,7 @@ daquela representação
 economizar recursos computacionais se for pedir pelo mesmo recurso mais de uma vez
 ---
 class: vintage
-# REST
+## REST
 ### Dados de Controle
 .pull-left[
 - **Identificador:** Foto do presidente dos EUA
@@ -220,7 +220,7 @@ class: vintage
 ]
 ---
 class: vintage
-# REST
+## REST
 ### Metadados de Controle — Cacheamento
 - O cliente guarda a representação até a data especificada
 - Caso queira acessar esse recurso novamente, verifica se o conteúdo já 'venceu'
@@ -232,23 +232,23 @@ class: vintage, middle, center
 ### Verbos e códigos HTTP
 ---
 class: vintage
-# Protocolo HTTP
+## Protocolo HTTP
 ### Origem e importância
 ---
 class: vintage
-# Protocolo HTTP
+## Protocolo HTTP
 ### Verbos
 ---
 class: vintage
-# Protocolo HTTP
-### Códigos
+## Protocolo HTTP
+### Códigos de Status
 ---
 class: vintage
-# Protocolo HTTP
+## Protocolo HTTP
 ### Cabeçalhos
 ---
 class: vintage
-# Protocolo HTTP
+## Protocolo HTTP
 ### Negociação de Conteúdo
 ---
 class: vintage, middle, center
@@ -256,15 +256,15 @@ class: vintage, middle, center
 ### Comunicação
 ---
 class: vintage
-# JSON &amp; YAML
+## JSON &amp; YAML
 ### Papo de máquina e papo de gente
 ---
 class: vintage
-# JSON &amp; YAML
+## JSON &amp; YAML
 ### Serialização e desserialização
 ---
 class: vintage
-# JSON &amp; YAML
+## JSON &amp; YAML
 ### XML?
 ---
 class: vintage, middle, center
@@ -272,31 +272,31 @@ class: vintage, middle, center
 ### Autenticação
 ---
 class: vintage
-# OAUTH &amp; JWT
+## OAUTH &amp; JWT
 ### Autenticação vs Autorização
 ---
 class: vintage
-# OAUTH &amp; JWT
+## OAUTH &amp; JWT
 ### Tokens e segurança
 ---
 class: vintage
-# OAUTH &amp; JWT
+## OAUTH &amp; JWT
 ### OAUTH e OAUTH2
 ---
 class: vintage
-# OAUTH &amp; JWT
+## OAUTH &amp; JWT
 ### JWT
 ---
 class: vintage
-# OAUTH &amp; JWT
+## OAUTH &amp; JWT
 ### Outros métodos
 ---
 class: vintage
-# OAUTH &amp; JWT
+## OAUTH &amp; JWT
 ### Man in the Cloud?
 ---
 class: vintage
-# OAUTH &amp; JWT
+## OAUTH &amp; JWT
 ### HTTPS
 ---
 class: vintage, middle, center
@@ -304,11 +304,11 @@ class: vintage, middle, center
 ### Documentação
 ---
 class: vintage
-# Blueprint &amp; Swagger
+## Blueprint &amp; Swagger
 ### Documente uma vez, atualize primeiro.
 ---
-class: vintage, middle, center
-# Blueprint &amp; Swagger
+class: vintage
+## Blueprint &amp; Swagger
 ### Mock Servers ou *como tirar o time de front-end do seu pé?*
 ---
 class: vintage, middle, center
@@ -316,23 +316,23 @@ class: vintage, middle, center
 ### Implementação
 ---
 class: vintage
-# Django, Flask &amp; *Pythonicidade*
+## Django, Flask &amp; *Pythonicidade*
 ### Zen do Python e REST
 ---
 class: vintage
-# Django, Flask &amp; *Pythonicidade*
+## Django, Flask &amp; *Pythonicidade*
 ### Microframeworks, macroframeworks
 ---
 class: vintage
-# Django, Flask &amp; *Pythonicidade*
+## Django, Flask &amp; *Pythonicidade*
 ### Projeto exemplo?
 ---
 class: vintage
-# Django, Flask &amp; *Pythonicidade*
+## Django, Flask &amp; *Pythonicidade*
 ### Django REST Framework
 ---
 class: vintage
-# Django, Flask &amp; *Pythonicidade*
+## Django, Flask &amp; *Pythonicidade*
 ### Django OAUTH Toolkit
 ---
 class: vintage, middle, center
@@ -340,15 +340,15 @@ class: vintage, middle, center
 ### Testando seu código
 ---
 class: vintage
-# Py.test, doctest &amp; unittest
+## Py.test, doctest &amp; unittest
 ### Testar pra quê?
 ---
 class: vintage
-# Py.test, doctest &amp; unittest
+## Py.test, doctest &amp; unittest
 ### Testes unitários e testes de integração
 ---
 class: vintage
-# Py.test, doctest &amp; unittest
+## Py.test, doctest &amp; unittest
 ### E os bancos de dados?
 ---
 class: vintage, middle, center
@@ -356,23 +356,23 @@ class: vintage, middle, center
 ### Colocando seu código no ar
 ---
 class: vintage
-# Heroku, EC2, EBS, Lambda
+## Heroku, EC2, EBS, Lambda
 ### Cloud, PaaS, SaaS e outros nomes pra impressionar a galera
 ---
-class: vintage, middle, center
-# Heroku, EC2, EBS, Lambda
+class: vintage
+## Heroku, EC2, EBS, Lambda
 ### Heroku
 ---
-class: vintage, middle, center
-# Heroku, EC2, EBS, Lambda
+class: vintage
+## Heroku, EC2, EBS, Lambda
 ### EC2/DigitalOcean
 ---
-class: vintage, middle, center
-# Heroku, EC2, EBS, Lambda
+class: vintage
+## Heroku, EC2, EBS, Lambda
 ### EBS
 ---
-class: vintage, middle, center
-# Heroku, EC2, EBS, Lambda
+class: vintage
+## Heroku, EC2, EBS, Lambda
 ### Lambda
 ---
 class: vintage, middle, center
@@ -380,11 +380,14 @@ class: vintage, middle, center
 ### Teste de carga
 ---
 class: vintage
-# AB
+## AB
 ### Centenas de requests simultâneos!
 ---
 class: vintage, middle, center
 # Fontes
 ---
-[Architectural Styles and the Design of Network-based Software Architectures](http://www.ics.uci.edu/~fielding/pubs/dissertation/fielding_dissertation.pdf)
+class: vintage
+- [**Architectural Styles and the Design of Network-based Software Architectures**](http://www.ics.uci.edu/~fielding/pubs/dissertation/fielding_dissertation.pdf)
 ---
+class: vintage, middle, center
+# Obrigado 😄
