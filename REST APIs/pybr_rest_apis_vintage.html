@@ -80,13 +80,43 @@
         padding: 15px;
       }
 
+      img {
+          max-width: 100%;
+      }
+
     </style>
   </head>
   <body>
     <textarea id="source">
 class: center, middle, vintage, splash
 # Arquitetura, Especificação e Implementação de APIs REST
-### por [Felipe Videira](https://felipevr.com)
+### por [Felipe Videira Rodrigues](https://felipevr.com)
+???
+- O nosso tema hoje é falar sobre APIs REST, o que elas são, pra quê elas servem,
+quais as tecnologias que estão envolvidas e como construir uma de forma correta.
+- Boa parte do conteúdo de hoje serve pra qualquer linguagem de programação.
+Só uma pequena parte do conteúdo é específica para Python.
+- Nós temos alocado um tempo de 8 horas.
+- Nesse tempo, eu preciso cobrir uma parte teórica do assunto mas eu prometo que
+não vou só ficar passando slides se não todo mundo aqui vai morrer de sono depois de 30min
+- Vou procurar diversificar bastante a apresentação do conteúdo e ele está disponível
+integralmente no meu GitHub, fiquem a vontade pra acompanhar como vocês preferirem
+seja só acompanhando a apresentação aqui, fazendo anotações, acompanhando no git, etc
+---
+class: middle, vintage
+# Apresentação
+- Felipe
+- Ciência da Computação - UNICAMP
+- PyLadies Campinas
+- Desenvolvedor no [LaCTAD/UNICAMP](http://www.lactad.unicamp.br)
+- Infraestrutura/DevOps na [Devnup](http://devnup.com)
+???
+- Meu nome é Felipe, eu tenho 24 anos e faço ciência da computação na UNICAMP.
+- Eu tô na programação faz mais ou menos 10 anos e nesse tempo eu já passei por
+diversas lingugagens de programação, ferramentas, técnicas e etc até que nos últimos
+anos eu me envolvi com programação em Python e desenvolvimento Web
+- Adicionalmente eu trabalho também com infraestrutura, que é relacionado com
+colocar os códigos 'no ar' e mantê-los funcionando
 ---
 class: middle, vintage
 # Agenda
@@ -156,6 +186,31 @@ class: vintage
 ## Exemplos
 - [APIs do Twitter](https://dev.twitter.com/rest/public) — Permitem que você interaja com o serviço de forma bastante ampla - poste novos tweets, busque por tweets, etc
 - [Facebook Graph API](https://developers.facebook.com/docs/graph-api) — Analogamente à API do Twitter, permite que você execute ações dentro do Facebok diretamente do seu código - Publique status, faça upload de imagens, determine se duas pessoas são amigos, liste os eventos que a pessoa foi convidada, etc
+---
+class: vintage
+# APIs
+### Qual a vantagem de utilizar APIs?
+???
+- Como nós vimos, ao utilizar APIs nós reaproveitamos recursos que existem na
+Internet, que foram feitos por outros programadores.
+- Ao reutilizar funcionalidades, economizamos tempo e recursos no nosso lado
+- Se já existe uma API que consegue, por exemplo, listar todos os programas de
+TV que estão passando em um canal, nós não precisamos gastar tempo buscando e guardando esses dados
+- Ou, por exemplo, se tivermos uma API que nos dá o CEP de uma rua. Nós podemos simplesmente
+utilizá-la e não perder tempo montando nosso próprio banco de dados
+---
+class: vintage
+# APIs
+### Qual a vantagem de CRIAR APIs?
+![why apis](img/api-diagram.png)
+???
+- Okay, utilizar APIs é legal mas, por qual motivo eu iria estrutrar meu projeto como uma API?
+- Uma das grandes vantagens é a reutilização dos recursos que você cria em diferentes clientes.
+- Suponha que você queira criar um projeto novo, um serviço de encontrar vendedores de cachorro-quente perto da casa do usuário
+- Suponha também que você queira que seu serviço seja utilizável por um navegador, no computador e também por um aplicativo Android e outro iOs
+- Se você estruturar seu código como uma API, você pode programar toda a lógica mais fundamental e pesada uma única vez
+- Então você pode utilizar essa API para alimentar os diferentes clientes que você vai construir
+- Além de facilitar o desenvolvimento, você garante de forma fácil que todos os clientes vão acessar os mesmos dados
 ---
 class: vintage, middle, center
 # REST
@@ -315,27 +370,11 @@ a representação armazenada ao invés de pedir uma nova
 ---
 class: vintage, middle, center
 # GET &amp; 404
-### Verbos e códigos HTTP
+### O protocolo HTTP
 ---
 class: vintage
 ## Protocolo HTTP
-### Origem e importância
----
-class: vintage
-## Protocolo HTTP
-### Verbos
----
-class: vintage
-## Protocolo HTTP
-### Códigos de Status
----
-class: vintage
-## Protocolo HTTP
-### Cabeçalhos
----
-class: vintage
-## Protocolo HTTP
-### Negociação de Conteúdo
+### [Mapa Mental](https://atlas.mindmup.com/2016/09/f0aedfa062f00134deff01735469202e/protocolo_http/index.html)
 ---
 class: vintage, middle, center
 # JSON &amp; YAML
@@ -474,6 +513,11 @@ class: vintage, middle, center
 ---
 class: vintage
 - [**Architectural Styles and the Design of Network-based Software Architectures**](http://www.ics.uci.edu/~fielding/pubs/dissertation/fielding_dissertation.pdf)
+- [**FAQ sobre HTTP/2**](https://http2.github.io/faq/)
+- [**The HTTP OPTIONS method and potential for self-describing RESTful APIs**](http://zacstewart.com/2012/04/14/http-options-method.html)
+- [**REST CookBook**](http://restcookbook.com/)
+- [**Build APIs You Won't Hate**](https://apisyouwonthate.com/)
+- [**Introduction to REST and .net Web API**](https://blogs.msdn.microsoft.com/martinkearn/2015/01/05/introduction-to-rest-and-net-web-api/)
 ---
 class: vintage, middle, center
 # Obrigado 😄
