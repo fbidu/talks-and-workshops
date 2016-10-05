@@ -123,7 +123,7 @@ class: middle, vintage
 
 * API? REST?? — Motivação
 * GET &amp; 404 — Verbos e códigos HTTP
-* JSON &amp; YAML — Comunicação
+* JSON &amp; XML — Comunicação
 * OAUTH &amp; JWT — Autenticação
 * Blueprint &amp; Swagger — Documentação
 * Django, Flask &amp; *Pythonicidade* — Implementação
@@ -377,20 +377,87 @@ class: vintage
 ### [Mapa Mental](https://atlas.mindmup.com/2016/09/f0aedfa062f00134deff01735469202e/protocolo_http/index.html)
 ---
 class: vintage, middle, center
-# JSON &amp; YAML
+# JSON &amp; XML
 ### Comunicação
 ---
 class: vintage
-## JSON &amp; YAML
+## JSON &amp; XML
 ### Papo de máquina e papo de gente
+![communication](img/communication.jpg)
+???
+* O protocolo HTTP define uma forma de empacotar e transmitir mensagens pela rede
+* Cliente e servidor consegue 'conversar' em HTTP.
+* No entanto, nós precisamos definir também uma estrutura para o _conteúdo_ que iremos transmitir
+* Usualmente, na internet, trabalhamos com HTML. Ele é bastante útil para estruturar o conteúdo para exibição.
+No entanto, uma API tem necessidades diferentes de um navegador.
+* Uma API normalmente não vai ser consumida diretamente por um ser humano mas sim por um front-end, que vai ser uma camada 'gráfica' sobre a API.
+* Nós não precisamos, portanto, formatar o conteúdo em termos de cores, tipos e tamanhos de fonte, etc. Essas coisas são delegadas para o front-end
+* No entanto, temos necessidades adicionais em relação ao HTML. Nós precisamos, por exemplo, definir dados booleanos, numéricos, listas de dados, etc.
+* O padrão mais utilizado para isso atualmente é o JSON
 ---
 class: vintage
-## JSON &amp; YAML
-### Serialização e desserialização
+## JSON &amp; XML
+### Exemplo de JSON
+```json
+{
+    "nome": "Felipe",
+    "idade": 24,
+    "altura": 1.88,
+    "programa em Python": true,
+    "bandas favoritas": [
+        "Pink Floyd",
+        "Led Zeppelin"
+    ],
+    "contatos": {
+        "email": "felipe@felipevr.com",
+        "github": "https://github.com/fbidu",
+        "site": "http://felipevr.com"
+    }
+}
+```
+???
+* Observe como temos uma estrutura de dicionário, no formato chaves-valores,
+muito parecida com o dicionário nativo do Python!
+* Observe também como temos valores com tipos de dados diferentes. Strings,
+Inteiros, Decimais, Booleanos, Listas e até mesmo um objeto dentro do outro
 ---
 class: vintage
-## JSON &amp; YAML
-### XML?
+## JSON &amp; XML
+### Serialização e Deserialização
+.pull-left[
+```python
+j = Pessoa()
+j.nome = 'João'
+j.idade = 23
+j.altura = 1.70
+j.bandas_favoritas = ['U2']
+(...)
+```
+]
+.pull-right[
+```json
+    {
+        "nome": "João",
+        "idade": 23,
+        "altura": 1.70,
+        "bandas favoritas": [
+            "U2"
+        ]
+        (...)
+    }
+```
+]
+???
+* No lado esquerdo temos uma instância do classe pessoa. Ela possui seus atributos definidos e tudo mais.
+* No entanto, não é possível simplesmente transmitir ou salvar esses dados para usar depois no jeito em que eles estão.
+* É necessário converter aquele objeto, que existe dentro do Python,
+em alguma coisa que possa ser salva, seja num arquivo ou num banco de dados, por exemplo
+* Esse processo é chamado de serialização.
+* A serialização consiste em transformar uma estrutura de dados, um objeto, em alguma coisa que possa ser salva ou transmitida
+e que depois a gente possa reconstruir o objeto original com base no que foi armazenado.
+* Existem serializações que geram formatos binários, pouco legíveis para humanos mas bastante compactos e bastante legíveis por máquinas
+* Nós podemos utilizar o JSON para serializar objetos em um formato de texto, que é legível tanto por humanos quanto por máquinas.
+* O texto gerado pode ser transmitido, armazenado, lido e reconstruído para um objeto original
 ---
 class: vintage, middle, center
 # OAUTH &amp; JWT
@@ -518,6 +585,8 @@ class: vintage
 - [**REST CookBook**](http://restcookbook.com/)
 - [**Build APIs You Won't Hate**](https://apisyouwonthate.com/)
 - [**Introduction to REST and .net Web API**](https://blogs.msdn.microsoft.com/martinkearn/2015/01/05/introduction-to-rest-and-net-web-api/)
+- [**JSON**](http://www.json.org/json-pt.html)
+- [**JSON API**](http://jsonapi.org/)
 ---
 class: vintage, middle, center
 # Obrigado 😄
