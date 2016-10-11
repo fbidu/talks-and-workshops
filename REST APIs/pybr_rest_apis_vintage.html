@@ -503,12 +503,50 @@ class: vintage
 ```
 http://usuário:senha@servidor.com
 ```
+![basic auth](img/basic-auth.svg)
 ???
 * É a forma mais básica de autenticação na Internet
+* Em cada chamada você passa o usuário e a senha para autenticação
+* É extremamente simples e fácil de ser implementado
+* Para aplicações bem simples ainda é utilizado. No entanto, alguns cuidados devem ser tomados
+* O protocolo HTTP não criptografa nada por padrão, então qualquer ponto no
+'meio do caminho' entre o cliente e o servidor poderá interceptar o nome de usuário e a senha
 ---
 class: vintage
 ## OAUTH &amp; JWT
-### Tokens e segurança
+### Autenticações por Token
+![token auth](img/token-auth.svg)
+???
+* Diversas implementações diferentes
+* Basicamente o usuário não mais fornece suas credenciais da API para o cliente
+* O usuário pede a um servidor de autenticação para gerar um token, que é basicamente um texto, uma string.
+* Nesse pedido, o usuário conta pro servidor de autenticação, em nome de *qual cliente*
+ele está gerando aquele token e quais ações o usuário quer permitir que o cliente execute em seu nome
+* O usuário vai se autenticar nesse servidor com as suas credenciais, este servidor irá validá-las
+e então irá gerar esse token, guardando ele atrelado à conta do usuário
+* O servidor de autenticação envia esse token para o cliente
+* A partir desse momento, o cliente vai utilizar esse token para autenticar suas chamadas à API feitas
+em nome do usuário
+* A API, ao receber uma chamada do cliente, pega o token e consulta de qual usuário é aquele token
+para fazer a autenticação e quais permissões o usuário deu para o portador daquele token
+---
+class: vintage, middle, center
+## OAUTH &amp; JWT
+### Tokens vs Basic Auth
+???
+* Algumas diferenças importantes. A primeira é que o usuário não mais envia as credenciais da sua conta
+ao cliente, mas sim a um servidor de autenticação
+* Outro ponto importante, no basic auth se um usuário utilizasse 3 clientes diferentes para uma API, por exemplo
+um cliente Android, um no navegador e outro numa Smart TV
+* Nesse cenário, como as mesmas credenciais são usadas para todos os clientes, o usuário não consegue remover
+o acesso de apenas um desses clientes. O máximo que ele pode fazer é mudar a própria senha, revogando o acesso
+de todos eles
+* Com uma autenticação baseada em tokens, o usuário pode revogar o acesso de apenas um aplicativo cliente
+* Mais uma questão importante - o usuário pode dar à clientes diferentes,
+autorizações diferentes sobre sua conta.
+* Outro ponto interessante é que com tokens, o usuário e a API podem saber qual *cliente*
+executou uma determinada ação em nome do usuário pois cada token é gerado para
+um cliente específico
 ---
 class: vintage
 ## OAUTH &amp; JWT
