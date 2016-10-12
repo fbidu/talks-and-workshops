@@ -474,6 +474,7 @@ class: vintage
 class: vintage
 ## OAUTH &amp; JWT
 ### *Man in the Middle* e *Man in the Cloud*
+![token auth](img/token-auth.svg)
 ---
 class: vintage
 ## OAUTH &amp; JWT
