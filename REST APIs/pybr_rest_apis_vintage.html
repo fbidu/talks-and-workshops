@@ -473,6 +473,23 @@
         ---
         class: vintage
         ## JSON &amp; XML
+        ```xml
+            <?xml version="1.0" encoding="ISO-8859-1"?>
+            <receita nome="pão" tempo_de_preparo="5 minutos" tempo_de_cozimento="1 hora">
+              <titulo>Pão simples</titulo>
+              <ingredientes>
+                <ingrediente quantidade="3" unidade="xícaras">Farinha</ingrediente>
+                <ingrediente quantidade="7" unidade="gramas">Fermento</ingrediente>
+                <ingrediente quantidade="1.5" unidade="xícaras" estado="morna">Água</ingrediente>
+                <ingrediente quantidade="1" unidade="colheres de chá">Sal</ingrediente>
+              </ingredientes>
+              <instrucoes>
+                <passo>Misture todos os ingredientes, e dissolva bem.</passo>
+                <passo>Cubra com um pano e deixe por uma hora em um local morno.</passo>
+                <passo>Misture novamente, coloque numa bandeja e asse num forno.</passo>
+              </instrucoes>
+            </receita>
+            ```
         ---
         class: vintage, middle, center
         # OAUTH &amp; JWT
@@ -551,15 +568,31 @@
         ---
         class: vintage
         ## OAUTH &amp; JWT
-        ### OAUTH e OAUTH2
+        ### OAUTH2
+        * Define 4 elementos
+        1. Proprietário do Recurso
+        2. Cliente
+        3. Servidor de Recursos
+        4. Servidor de Autorizações
         ---
         class: vintage
         ## OAUTH &amp; JWT
-        ### JWT
+        ### OAUTH2 - Fluxo
+        ![token auth](img/oauth2.png)
+        ???
+        * A aplicação pede ao usuário acesso a um determinado recurso
+        * Se o usuário autoriza, a aplicação recebe uma 'concessão de autorização'
+        * A aplicaçao requisita um token de acesso do servidor de autorização,
+        apresentando uma autenticação de si própria e a concessão do cliente
+        * Se a identidade da aplicação e a concessão de autorização são válidos,
+        o servidor de autorização emite um token de acesso para a aplicação
+        * A aplicação requisita um recurso da API e apresenta o token de acesso
+        * Se o token é válido, a API retorna o recurso pedido
         ---
         class: vintage
-        ## OAUTH &amp; JWT
-        ### Outros métodos
+        ## OAUTH2 &amp; JWT
+        ### OAUTH2 - Brincando com OAUTH2 de verdade!
+        [API do Twitter](https://dev.twitter.com/)
         ---
         class: vintage
         ## OAUTH &amp; JWT
@@ -609,10 +642,25 @@
         ### *Man in the Cloud*
         ![token auth](img/man-in-cloud.jpg)
         ???
+        * O ataque de *Man in the Cloud* foi descrito pela primeira vez pela Imperva,
+        na conferência BlackHat de 2015
+        * Nas autenticações via token, o aplicativo cliente recebe um token e o armazena
+        para uso posterior
+        * O ataque é baseado no roubo dessas credenciais que as vezes são armazenadas de forma irregular
+        * Esse token roubado pode ser utilizado para fazer chamadas devidamente autenticadas
+        * Observe que o *Man in the Middle* é focado em informações em trânsito, enquanto o *Man in the Cloud*,
+        em informações armazenadas
+        * Isso é mais uma evidência de como a segurança dos nossos sistemas é uma coisa que nós devemos abordar
+        de uma forma abrangente e cuidadosa
         ---
         class: vintage
         ## OAUTH &amp; JWT
         ### HTTPS
+        ![https](img/https.png)
+        ???
+        * Em linhas bem gerais, é uma camada de segurança sobre a comunicação HTTP normal
+        * Nos permite garantir que as inforçãoes transmitidas entre cliente e servidor não sejam lidas
+        nem modificads por outras pesoaSSS
         ---
         class: vintage, middle, center
         # Blueprint &amp; Swagger
@@ -640,7 +688,7 @@
         ---
         class: vintage
         ## Django, Flask &amp; *Pythonicidade*
-        ### Projeto exemplo?
+        ### Projeto exemplo
         ---
         class: vintage
         ## Django, Flask &amp; *Pythonicidade*
@@ -667,28 +715,20 @@
         ### E os bancos de dados?
         ---
         class: vintage, middle, center
-        # Heroku, EC2, EBS, Lambda
+        # Heroku &amp; EC2
         ### Colocando seu código no ar
         ---
         class: vintage
-        ## Heroku, EC2, EBS, Lambda
+        ## Heroku &amp; EC2
         ### Cloud, PaaS, SaaS e outros nomes pra impressionar a galera
         ---
         class: vintage
-        ## Heroku, EC2, EBS, Lambda
+        ## Heroku &amp; EC2
         ### Heroku
         ---
         class: vintage
-        ## Heroku, EC2, EBS, Lambda
+        ## Heroku &amp; EC2
         ### EC2/DigitalOcean
-        ---
-        class: vintage
-        ## Heroku, EC2, EBS, Lambda
-        ### EBS
-        ---
-        class: vintage
-        ## Heroku, EC2, EBS, Lambda
-        ### Lambda
         ---
         class: vintage, middle, center
         # AB
@@ -707,9 +747,10 @@
         - [**The HTTP OPTIONS method and potential for self-describing RESTful APIs**](http://zacstewart.com/2012/04/14/http-options-method.html)
         - [**REST CookBook**](http://restcookbook.com/)
         - [**Build APIs You Won't Hate**](https://apisyouwonthate.com/)
-        - [**Introduction to REST and .net Web API**](https://blogs.msdn.microsoft.com/martinkearn/2015/01/05/introduction-to-rest-and-net-web-api/)
+        - [**Introduction to REST and .Net Web API**](https://blogs.msdn.microsoft.com/martinkearn/2015/01/05/introduction-to-rest-and-net-web-api/)
         - [**JSON**](http://www.json.org/json-pt.html)
         - [**JSON API**](http://jsonapi.org/)
+        - [**Man in the Cloud**](https://www.imperva.com/docs/HII_Man_In_The_Cloud_Attacks.pdf)
         ---
         class: vintage, middle, center
         # Obrigado 😄
