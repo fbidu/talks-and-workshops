@@ -297,7 +297,52 @@
         ???
         - Cuidado com logs de erro que são jogados pro front end! Eles podem indicar característica importantes do sistema e
         até mesmo vazer credenciais e outras informações estratégicas do seu código.
-        - 
+        - Exceções devem ser tratadas pelo front end!
+        - O usuário digitou a senha errada. É realmente necessário falar que ele errou _apenas_ a senha? Dada essa informação,
+        um possível atacante já sabe que ele acertou o nome de usuário :)
+        ---
+        class: vintage, middle, center
+        Não pense que a sua API "fala pouco"
+        ???
+        - Absolutamente TODOS os endpoints da sua API que são utilizados pelo seu front end podem ser facilmente mapeados!
+        - Mesmo que o front end não seja escrito numa tecnologia aberta, como javascript, um usuário de um app mobile
+        pode facilmente capturar os pacotes de rede que entram e saem do celular e mapear esses endpoints
+        - Isso sem contar com engenharia reversa
+        ---
+        class: vintage, middle, center
+        Cuidado com funcionalidades e códigos velhos/desnecessários/nunca totalmente implementados!
+        ???
+        - Assim como quanto maior um país, mais difícil é construir um murão em volta dele, quanto maior for
+        sua base de código, maior será a superfície de ataque dela.
+        - Além disso, código velho que não é mantido mas fica no ar, não recebe mais atualizações e, com o tempo
+        nós nos esquecemos dele. No entanto, esses códigos continuam disponíveis para ataques!
+        ---
+        class: vintage, middle, center
+        A segurança do servidor que roda seu código é tão importante quanto a segurança do seu código em si!
+        ???
+        - De nada adianta seu código ser super protegido se o servidor que roda ele é extremamente vulnerável.
+        - Além disso, se seu servidor de banco de dados, por exemplo, for vulnerável, toda a informação contida
+        no software pode ser comprometida
+        ---
+        class: vintage, middle, center
+        Fazer sistemas complicados e obscuros como forma de proteção cria uma falsa sensação de segurança.
+
+        O inimigo conhece o sistema - Claude Shannon
+        ???
+        - Alguns desenvolvedores e empresas caem na armadilha de pensar que caso eles escrevam códigos e APIs confusas,
+        um possível ataque será prevenido. No entanto, isso na verdade cria uma falsa sensação de segurança.
+        - Em primeiro lugar, um atacante pode utilizar de ferramentas de análise estática de código para desobfuscar
+        código que rodem do lado do cliente
+        - Em segundo lugar, um código confuso dificulta a sua manutenção e utilização, o que dificulta a melhoria de
+        aspectos de segurança e todo o trabalho da equipe em geral.
+        - Por último, o seu código vai ser utilizado _por alguém_ - notadamente seus clientes válidos. Caso esses
+        pontos terminais não estejam devidamente protegidos, obfuscação alguma irá te salvar.
+        - No fim das contas, ou você obfusca o seu código a ponto dele ser simplesmente inútil e, portanto, nem
+        deveria existir em primeiro lugar, ou a obfuscação é simplesmente um processo sem sentido que cria uma sensação
+        vazia - e errada - de segurança
+        - O enunciado aqui é uma variante dos [Princípio de Kerckhoffs](https://en.wikipedia.org/wiki/Kerckhoffs%27s_principle)
+        e o resumo em baixo veio de Claude Shannon, o pai da teoria da informação
+
         ---
         class: vintage
         ** Injeção e Proteção
