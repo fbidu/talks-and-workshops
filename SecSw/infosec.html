@@ -344,19 +344,53 @@
         e o resumo em baixo veio de Claude Shannon, o pai da teoria da informação
 
         ---
-        class: vintage
-        ** Injeção e Proteção
-        ** Autenticação e Controle de Acesso
-        ** XSS e CSRF
-        ** Componentes e Configurações
-        ** Proteção de Dados Sensíveis e APIs
+        class: vintage, middle, center
+
+        # OWASP Top 10
         ---
         class: vintage, middle, center
-        # OAUTH &amp; JWT
-        ### Autenticação
+        ![](img/owasp.png)
+        ???
+        - Agora eu vou falar um pouco da OWASP e do projeto OWASP Top 10
+        - A OWASP é uma organização internacional, sem fins lucrativos e sem ligação com nenhuma empresa que é dedicada a dar visibilidade as questões de segurança de software, de forma que todos envolvidos no desenvolvimento de um software possam tomar decisões conscientes
+        - O material produzido pela OWASP é bastante vasto e não tem como a gente passar por todo ele ao longo de uma aula
+        - No entanto, é importante que vocês saibam da existência e do trabalho realizado pela OWASP caso vocês, depois dessa aula, se sintam interessados em saber mais sobre segurança e desejam implementar isso no trabalho de vocês
+        - A OWASP é uma fonte fantástica de informações e ela possui diversos guias, procedimentos, recomendações e todo tipo de material relacionado com segurança
+        - Hoje eu vou me focar no projeto OWASP Top 10 - um projeto que seleciona os 10 riscos de segurança mais críticos em aplicações web, com base em milhares de dados coletados de empresas que desenvolvem software e empresas que prestam consultoria em segurança
+        - O relatório de 2017 ainda está em desenvolvimento. Eu vou usar a RC1 dele e o relatório final deve estar pronto até agosto.
+        ---
+        class: vintage, middle, center
+        ![](img/owasp_10.png)
+        ???
+        - Para facilitar a explicação, eu dividi os 10 itens em duplas. Fazendo isso, eu corrompi a ordem original da listagem.
+        ---
+        class: vintage, middle, center
+        ## Injeção e Proteção
+        ???
+        - Injeção diz respeito a entradas não validadas vindas do usuário sendo utilizadas como partes de comandos e consultas realizadas pelo sistema
+        - O exemplo mais clássico é o SQL Injection onde o valor de um item de uma consulta ao banco de dados é fornecido pelo cliente e usado pelo servidor sem validações prévias
+        - Proteção diz respeito à capacidade do seu código responder a ataques ou a tentativas de ataque. O seu software deve não apenas filtrar e validar entradas do usuário, é importante que possíveis tentativas de ataque sejam registradas em algum lugar especial.
+        - É também relevante que exceções que ocorram ao longo do funcionamento do seu software sejam armazenadas em algum arquivo de log e analisadas periodicamente
+        ---
+        class: vintage, middle, center
+        ![](img/xkcd.png)
+        ---
+        class: vintage, middle
+        ### Prevenção
+        #### Injeção
+        - Parametrização
+        - Limpeza
+        - Whitelists
+
+        #### Proteção
+        - Detecção
+        - Resposta
+        - Manutenção
+        ---
+        class: vintage, middle, center
+        ## Autenticação e Controle de Acesso
         ---
         class: vintage
-        ## OAUTH &amp; JWT
         ### Autenticação vs Autorização
         ![Home](img/homer-id.jpg)
         ???
@@ -375,7 +409,6 @@
         * No meio digital, o meio mais comum de autenticação são usuários e senhas
         ---
         class: vintage
-        ## OAUTH &amp; JWT
         ### Basic Auth
         ```
         http://usuário:senha@servidor.com
@@ -390,7 +423,6 @@
         'meio do caminho' entre o cliente e o servidor poderá interceptar o nome de usuário e a senha
         ---
         class: vintage
-        ## OAUTH &amp; JWT
         ### Autenticações e Autorizações por Token
         ![token auth](img/token-auth.svg)
         ???
@@ -408,7 +440,6 @@
         para fazer a autenticação e quais permissões o usuário deu para o portador daquele token
         ---
         class: vintage, middle, center
-        ## OAUTH &amp; JWT
         ### Tokens vs Basic Auth
         ???
         * Algumas diferenças importantes. A primeira é que o usuário não mais envia as credenciais da sua conta
@@ -427,7 +458,6 @@
         * Atualmente, a maioria das APIs utiliza alguma estrutura de autenticação baseada em tokens
         ---
         class: vintage
-        ## OAUTH &amp; JWT
         ### *Man in the Middle*
         ![token auth](img/communication.png)
         ???
@@ -439,7 +469,6 @@
         nessa conexão entre os pontos
         ---
         class: vintage
-        ## OAUTH &amp; JWT
         ### *Man in the Middle*
         ![token auth](img/real-communication.png)
         ???
@@ -455,7 +484,6 @@
         literalmente, 'Homem no Meio'
         ---
         class: vintage
-        ## OAUTH &amp; JWT
         ### *Man in the Middle*
         ![token auth](img/mitm.png)
         ???
@@ -470,7 +498,6 @@
         * Se você usar qualquer forma de autenticação via token, o atacante poderá roubar esse token
         ---
         class: vintage
-        ## OAUTH &amp; JWT
         ### *Man in the Cloud*
         ![token auth](img/man-in-cloud.jpg)
         ???
@@ -486,15 +513,27 @@
         de uma forma abrangente e cuidadosa
         ---
         class: vintage
-        ## OAUTH &amp; JWT
         ### HTTPS
         ![https](img/https.png)
         ???
         * Em linhas bem gerais, é uma camada de segurança sobre a comunicação HTTP normal
         * Nos permite garantir que as inforçãoes transmitidas entre cliente e servidor não sejam lidas
-        nem modificads por outras pesoaSSS
+        nem modificadas por outras pesoas
         ---
         class: vintage, middle, center
+        ## XSS e CSRF
+        ???
+        - XSS se refere à cross
+        ---
+        class: vintage, middle, center
+        ## Componentes e Configurações
+        ---
+        class: vintage, middle, center
+        ## Proteção de Dados Sensíveis e APIs
+        ---
+        class: vintage, middle, center
+        # Autenticação em APIs HTTP
+                class: vintage, middle, center
         # Fontes
         ---
         class: vintage
@@ -504,6 +543,7 @@
         - [**Stranger hacks family's baby monitor and talks to child at night**](http://sfglobe.com/2016/01/06/stranger-hacks-familys-baby-monitor-and-talks-to-child-at-night/)
         - [**Sobre o ataque ao Brian Krebs**](https://krebsonsecurity.com/2016/09/krebsonsecurity-hit-with-record-ddos/)
         - [**The Democratization of Censorship**](https://krebsonsecurity.com/2016/09/the-democratization-of-censorship/)
+        - [**OWASP**](https://www.owasp.org)
         ---
         class: vintage, middle, center
         # Obrigado 😄
