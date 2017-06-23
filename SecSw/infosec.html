@@ -101,7 +101,7 @@
         ---
         class: middle, vintage
         # Apresentação
-        - Felipe
+        - felipe@felipevr.com
         - Ciência da Computação - UNICAMP
         - PyLadies Campinas
         - Desenvolvedor no [LaCTAD/UNICAMP](http://www.lactad.unicamp.br)
@@ -120,7 +120,6 @@
         * Segurança da Informação e de Software
         * Segurança e suas Falhas
         * Os Riscos Mais Comuns e o OWASP Top 10
-        * Criptografia e Hashing
         ---
         class: center, middle, vintage
         # Software, Informação e Sociedade
@@ -523,10 +522,22 @@
         class: vintage, middle, center
         ## XSS e CSRF
         ???
-        - XSS se refere à cross
+        - XSS se refere à cross site scripting. É uma falha que consiste na injeção de código que vai ser utilizado posteriormente para renderizar o front-end da aplicação.
+        - Um exemplo disso é quando um input do usuario contem códigos HTML e JavaScript que não são limpos pelo sistema e esse código acaba interferindo na renderização da página
+        - CSRF é Cross Site Request Forgery e ocorre quando um pedido é falsificado de um site para o seu.
+        - Felizmente ataques de CSRF caíram drasticamente graças ao fato de que muitos frameworks populares incluem por padrão proteção contra CSRF e praticamente todos os navegadores modernos adotam CORS
         ---
         class: vintage, middle, center
         ## Componentes e Configurações
+        ???
+        - A OWASP considera como fonte importante de falhas o uso de componentes - como por exemplo bibliotecas - com vulnerabilidades conhecidas.
+        - É normal ao longo do nosso processo de desenvolvimento nós utilizarmos de pedaços de código que outros programadores desenvolveram
+        - Isso é uma prática muito boa para evitar que a gente tenha o re-trabalho de fazer algo que outra pessoa já fez. No entanto, precisamos ficar atentos com o quão atualizadas essas bibliotecas são
+        - Outro ponto importante é verificarmos se todas as bibliotecas que acabamos por incluir em nossos códigos são _de fato_ utilizadas
+        - A questão das configurações no relatório da OWASP diz respeito principalmente aos componentes do servidor que roda a aplicação
+        - Os softwares instalados no servidor estão atualizados?
+        - Existem serviços desnecessários habilitados no servidor?
+        - As configurações dos servidores ativos estão otimizadas ou rodando no 'default'?
         ---
         class: vintage, middle, center
         ## Proteção de Dados Sensíveis e APIs
