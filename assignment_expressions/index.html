@@ -52,7 +52,7 @@
       font-family: 'Roboto Mono';
     }
 
-    .remark-code-line-highlighted {
+    .remark-code-line-highlighted, .remark-inline-code {
       background-color: #373832;
     }
 
@@ -235,6 +235,33 @@
         for i in range(x):
           print(i)
         ```
+        ???
+        - O primeiro código é válido para o Python 2 e absolutamente inválido para o Python 3.
+        - A função raw_input e xrange não existem no Python 3 e o print mudou de formato
+        - Por outro lado o segundo código é Python 3 válido, faz a mesma coisa que o primeiro e é
+        compatível com Python 2!
+        ---
+        class: middle, vintage, center
+        # PEPs
+        [As Propostas de Melhoria do Python](https://www.python.org/dev/peps/)
+        ???
+        - Python é uma linguagem Open Source, o que significa, entre outras coisas, que todo o código
+        fonte que faz o Python funcionar e público e todos nós podemos acessar e colaborar com ele!
+        - PEPs são documentos que propõem modificações na linguagem, nos métodos usados para
+        decidir assuntos sobre o desenvolvimento e muito mais!
+        - Eles também servem para coletar opiniões da comunidade sobre todos esses tópicos
+        - Um PEP contém um resumo da ideia que está sendo apresentada, o contexto dessa ideia,
+        a motivação e outros pontos importantes como as opiniões favoráveis ou não à ideia
+        ---
+        class: middle, vintage, center
+        ![](img/pep3105-1.png)
+        [PEP 3105](https://www.python.org/dev/peps/pep-3105/) como o `print` virou `print()`
+        ???
+        - Aqui nós temos um exemplo de PEP, a mudança do print como ele era em Python 2 para Pyhon 3
+        ---
+        class: middle, vintage, center
+        ![](img/pep3105-2.png)
+        O PEP inclui uma discussão histórica sobre o motivo da mudança
         ---
         class: vintage, middle, center
         # Obrigado 😄
