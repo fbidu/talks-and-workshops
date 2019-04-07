@@ -145,14 +145,14 @@
         ???
         - Meu nome é Felipe, eu tenho 26 anos e faço ciência da computação na UNICAMP.
         - Eu tô na programação faz mais ou menos 10 anos e nesse tempo eu já passei por
-        diversas lingugagens de programação, ferramentas, técnicas e etc até que nos últimos
+        diversas lingugagens de programação, ferramentas, técnicas e etc até que nos últimos 5~6
         anos eu me envolvi com programação em Python e desenvolvimento Web
-        - Adicionalmente eu trabalho também com infraestrutura no Poppin
+        - Além disso eu trabalho também com infraestrutura no Poppin
         ---
         class: middle, vintage
         # Agenda
         1. Linguagens Naturais e Linguagens de programação
-        2. O surgimento do "você"
+        2. Python**s**
         3. PEPs
         4. Assignment Expressions
         ---
@@ -187,31 +187,54 @@
         # Saluton, kiel vi fartas?
         ???
         - Isso significa "Olá, como vão vocês?" em Esperanto, uma língua totalmente
-        artificial!
-        - O Esperanto
-
+        artificial e criada pra tentar ser uma "língua universal"
         ---
         class: middle, vintage
         # Ambiguidades
         ### Onde Línguas Naturais e de Programação começam a se dividir
         ???
-        - Imagine que você anda meio desconfiado de um funcionário seu, todo dia
+        - Se tanto linguagens naturais como de programação podem ser artificiais,
+        é nas ambiguidades onde elas começam a se separar
+        - Imagine que você anda meio desconfiado de um amigo seu, todo dia
         no almoço ele dá uma sumida
-        - Então você resolve pedir pra um amigo dar uma olhada no que ele faz
+        - Então você resolve pedir pra outro amigo dar uma olhada no que o primeiro faz
         - Depois de uns dias, a pessoa volta e te conta:
         ---
         class: middle, vintage
         # Ambiguidades
-        'Ele vai pra sua casa, dá um beijo em sua esposa e brinca com seu cachorro'
+        'Todo dia no almoço, ele pega dinheiro da sua carteira, vai almoçar com sua esposa, dá um beijo nela e volta'
         ???
-        - Um dia normal! Nenhum problema aí.
-        - Então seu amigo decide reformular a frase dele:
+        - Um dia normal! Nenhum problema aí. Você fica tranquilo
+        - Seu amigo acha sua reação estranha e decide reformular a frase dele:
         ---
         class: middle, vintage
         # Ambiguidades
-        'Ele vai pra tua casa, dá um beijo em tua esposa e brinca com teu cachorro'
+        'Todo dia no almoço, ele pega dinheiro da **tua** carteira, vai almoçar com **tua** esposa, dá um beijo nela e volta'
         ???
-        - De repente o dia do seu funcionário não é mais tão normal assim
+        - De repente o dia do seu amigo não é tão legal assim
+        ---
+        class: middle, vintage, center
+        ## Linguagens de Programação não podem ter nenhum tipo de ambiguidade, independente do contexto!
+        ---
+        class: middle, vintage, center
+        # Pythons
+        Observe o plural!
+        ???
+        - Se as linguagens naturais mudam com o tempo, será que isso acontece com as de programação?
+        ---
+        class: middle, vintage
+        ### Python 2:
+        ```python
+        x = int(raw_input())
+        for i in xrange(x):
+          print i
+        ```
+        ### Python 3:
+        ```python3
+        x = int(input())
+        for i in range(x):
+          print(i)
+        ```
         ---
         class: vintage, middle, center
         # Obrigado 😄
