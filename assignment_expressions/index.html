@@ -126,12 +126,8 @@
 <body>
   <textarea id="source">
         class: center, middle, vintage, splash
-        # Como linguagens mudam e crescem ― o jeito Python
+        # Como linguagens evoluem ― o jeito Python
         ### por [Felipe **"Bidu"** Rodrigues](https://felipevr.com)
-        ???
-        - Vou procurar diversificar bastante a apresentação do conteúdo e ele está disponível
-        integralmente no meu GitHub, fiquem a vontade pra acompanhar como vocês preferirem
-        seja só acompanhando a apresentação aqui, fazendo anotações, acompanhando no git, etc
         ---
         class: middle, vintage
         # Aperte a tecla `p` para ver as notas de aula!
@@ -142,12 +138,6 @@
         - github.com/fbidu
         - Ciência da Computação - UNICAMP
         - Arquiteto de Infraestrutura no [Poppin](https://poppin.app/)
-        ???
-        - Meu nome é Felipe, eu tenho 26 anos e faço ciência da computação na UNICAMP.
-        - Eu tô na programação faz mais ou menos 10 anos e nesse tempo eu já passei por
-        diversas lingugagens de programação, ferramentas, técnicas e etc até que nos últimos 5~6
-        anos eu me envolvi com programação em Python e desenvolvimento Web
-        - Além disso eu trabalho também com infraestrutura no Poppin
         ---
         class: middle, vintage
         # Agenda
@@ -156,6 +146,12 @@
         3. PEPs
         4. O Desenvolvimento do Python
         5. Assignment Expressions
+        ???
+        - Hoje eu vou discutir com vocês sobre as mudanças em linguagens de programação,
+        especialmente como esse processo acontece no Python
+        - Depois eu vou falar um pouco sobre como acontece o desenvolvimento do Python em si
+        - Por último eu vou falar um pouquinho de uma sintaxe nova que vai ser implementada
+        no Python 3.8, que vai ser lançado no fim desse ano
         ---
         class: middle, vintage
         # Qual a diferença entre Português e Python?
@@ -203,6 +199,12 @@
         - As ambiguidades tornam a comunicação menos clara e dependentes de contexto
         - Para que computadores consigam entender a gente bem é necessário que a comunicação
         seja o menos ambígua possível
+        - Como a gente pode ver, linguagens naturais e de programação possuem mais semelhanças do
+        que pode parecer num primeiro momento
+        - No entanto, as linguagens naturais podem evoluir de uma forma mais orgânica. A gente pode
+        simplesmente criar uma expressão nova e combinar entre nós o significado dela entre nós
+        - Uma linguagem de programação, por outro lado, precisa de interpretadores, compiladores,
+        conjunto de instruções de execução, etc
         - Obs.: As linguagens em que a gente escreve código podem conter ambiguidades, mas quando elas
         são parseadas e enviadas para o processador, essas ambiguidades são resolvidas.
         ---
@@ -387,6 +389,13 @@
         ### "Expressões de Atribuição"
         ---
         class: middle, vintage
+        PEP que descreve a nova sintaxe —
+        [PEP 572](https://www.python.org/dev/peps/pep-0572/)
+        
+        Issue pra acompanhar a implementação do PEP —
+        [Issue 35224](https://bugs.python.org/issue35224)
+        ---
+        class: middle, vintage
         ```python3
         idade = 40
         ```       
@@ -466,12 +475,29 @@
         ---
         class: vintage, middle, center
         # Lembre-se: "Legibilidade importa."
-        -- Zen do Python
+        — Zen do Python
         ???
         - Expressões de atribuição são mais uma ferramenta que podemos usar em
         nossos códigos
         - Mas vale lembrar que códigos que ocupam "menos linhas" às vezes são menos
         legíveis e menos expressivos que códigos mais longos
+        ---
+        class: vintage
+        ### Problema - receber 3 números inteiros e imprimir a média
+        Duas soluções igualmente válidas:
+        ```python3
+        print(sum([int(input()) for _ in range(3)])/3)
+        ```
+        ```python3
+        numbers = []
+        for _ in range(3):
+            x = int(input())
+            numbers.append(x)
+
+        average = sum(numbers) / 3
+        print(average)
+        ```
+        Qual é mais legível?
         ---
         class: vintage, middle, center
         # Obrigado!
