@@ -44,6 +44,24 @@ int anoDeSurgimento = 1970;
 String linguagem = "Java";
 int anoDeSurgimento = 1990;
 ```
+Outras linguagens, como Python, PHP e JavaScript tem a sua tipagem implícita. Em
+geral, o interpretador dessas linguagens calcula o tipo de uma variável ao longo
+da execução do código
+
+```python
+linguagem = "Python"
+ano_de_surgimento = 1991
+```
+
+```php
+$linguagem = "PHP";
+$anoDeSurgimento = 1995;
+```
+
+```javascript
+var linguagem = "JavaScript";
+var anoDeSurgimento = 1996;
+```
 
 _Go tem tipagem mista!_
 
