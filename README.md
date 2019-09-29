@@ -4,7 +4,7 @@
 
 *Pressione `P` para ver as notas de aula*
 
-[Como linguagens evoluem ― o jeito Python][https://felipevr.com/talks-and-workshops/assignment_expressions/#p1]
+[Como linguagens evoluem ― o jeito Python](https://felipevr.com/talks-and-workshops/assignment_expressions/#p1)
 
 [Segurança da Informação e de Software](https://felipevr.com/talks-and-workshops/SecSw/infosec.html)
 
