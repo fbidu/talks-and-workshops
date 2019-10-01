@@ -1,5 +1,7 @@
 # Tipagem e Segurança
 
+*RASCUNHO!*
+
 ## O Que É Tipagem?
 
 A maioria das linguagens de programação modernas trabalham com os conceitos de
@@ -71,3 +73,18 @@ linguagem = "Go"
 
 anoDeSurgimento := 2009
 ```
+
+## Fontes
+[On typed, untyped, and “uni-typed” languages](https://medium.com/@samth/on-typed-untyped-and-uni-typed-languages-8a3b4bedf68c)
+[Integers In C: An Open Invitation To Security Attacks?](https://www.cs.cmu.edu/~ckaestne/pdf/csse14-01.pdf)
+[Benign Data Races: What Could Possibly Go Wrong?](https://software.intel.com/en-us/blogs/2013/01/06/benign-data-races-what-could-possibly-go-wrong)
+[How did Heartbleed remain undiscovered, and what should we do about it?](http://www.pl-enthusiast.net/2014/07/01/how-did-heartbleed-remain-undiscovered-and-what-should-we-do-about-it/)
+[the state of type hints in Python](https://www.bernat.tech/the-state-of-type-hints-in-python/)
+[Pydantic](https://github.com/samuelcolvin/pydantic)
+[Static and dynamic type checking in practice](https://en.wikipedia.org/wiki/Type_system#Static_and_dynamic_type_checking_in_practice)
+[Mypy Examples](http://www.mypy-lang.org/examples.html)
+[Is Python type safe?](https://stackoverflow.com/questions/46388355/is-python-type-safe)
+[Strong and Weak Typing](https://en.wikipedia.org/wiki/Strong_and_weak_typing)
+https://www.python.org/dev/peps/pep-0483/
+https://www.python.org/dev/peps/pep-0484/
+https://www.python.org/dev/peps/pep-0526/
