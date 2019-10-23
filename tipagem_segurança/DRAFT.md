@@ -5,7 +5,7 @@
 ## O Que É Tipagem?
 
 A maioria das linguagens de programação modernas trabalham com os conceitos de
-variáveis e tipos. Uma variável é, em resumo, um pedaço nomeado de memória que
+variáveis e tipos. Em resumo, uma variável é um pedaço nomeado de memória que
 pode guardar um valor e o tipo da variável permite que esse valor seja interpretado
 corretamente.
 
