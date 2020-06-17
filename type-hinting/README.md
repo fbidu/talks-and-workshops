@@ -1,5 +1,9 @@
 # Type Hinting em Python
 
+[Slides on-line](https://felipevr.com/talks-and-workshops/type-hinting/)
+
+---
+
 Essa palestra foi apresentada na Python Brasil de 2019. Você pode vê-la online
 [aqui](https://felipevr.com/talks-and-workshops/type-hinting/). Minhas anotações
 de apresentação são importantes, aperte `s` para visualizá-las.
