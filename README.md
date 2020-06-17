@@ -2,8 +2,6 @@
 
 ## Slides
 
-*Pressione `P` para ver as notas de aula*
-
 [Python, Tipos & Pessoas](https://felipevr.com/talks-and-workshops/type-hinting/) ― Python Brasil 2019
 
 [Como linguagens evoluem ― o jeito Python](https://felipevr.com/talks-and-workshops/assignment_expressions/#p1) ― Python Sudeste 2019
