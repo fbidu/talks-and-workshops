@@ -1,5 +1,8 @@
-# Talks and Workshops
+# Palestras & Cursos
 
+Esse repositório contém materiais de cursos, palestras, tutoriais, lightining talks e afins que já ministrei em eventos de tecnologia. Algumas das referências à baixo estão hospedadas aqui e outras apontam para repositórios externos.
+
+Uma relação aproximada dos conteúdos e de quando eles foram apresentados é:
 
 [Python, Tipos & Pessoas](https://felipevr.com/talks-and-workshops/type-hinting/) ― Python Brasil, 2019
 
@@ -12,7 +15,3 @@
 [Segurança da Informação e de Software](https://felipevr.com/talks-and-workshops/SecSw/infosec.html#p1) ― Caipyra, 2017; Semana da Computação da USP de São Carlos, 2017
 
 [Arquitetura, Especificação e Implementação de APIs REST](http://felipevr.com/talks-and-workshops/REST%20APIs/pybr_rest_apis_vintage.html#1) ― Python Brasil, 2016
-
-## Notebooks
-
-[![Binder](http://mybinder.org/badge.svg)](http://mybinder.org:/repo/fbidu/talks-and-workshops)
