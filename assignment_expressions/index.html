@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="keywords" content="api, python, django, rest, fbidu" />
+  <meta name="description" content="Slides for a workshop on REST APIs" />
+  <title>Como linguagens mudam e crescem</title>
+  <style>
+    @import 'https://fonts.googleapis.com/css?family=Lobster|Kelly+Slab|Raleway|Roboto+Mono';
+
+    .vintage {
+      background: #425454;
+      color: #F4EEB4;
+      font-family: 'Raleway', sans-serif;
+      line-height: 2em;
+      font-size: 1.5em;
+    }
+
+    .splash h1 {
+      font-family: 'Lobster', cursive;
+       !important;
+    }
+
+    .vintage h1,
+    .vintage h2 {
+      color: #ABC39F;
+      line-height: 1.3em;
+      font-size: 0.5em;
+      font-family: 'Kelly Slab';
+    }
+
+    .vintage h3 {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.8em;
+      line-height: 1em;
+    }
+
+    .vintage a {
+      color: #55897D;
+      
+    }
+
+    code {
+      background: #e7e8e2;
+      border-radius: 5px;
+      line-height: 1.5em;
+    }
+
+    .remark-code,
+    .remark-inline-code {
+      font-family: 'Roboto Mono';
+    }
+
+    .remark-code-line-highlighted, .remark-inline-code {
+      background-color: #373832;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: 'Yanone Kaffeesatz';
+      font-weight: 400;
+      margin-bottom: 0;
+    }
+
+    .remark-slide-content h1 {
+      font-size: 3em;
+    }
+
+    .remark-slide-content h2 {
+      font-size: 2em;
+    }
+
+    .remark-slide-content h3 {
+      font-size: 1.6em;
+    }
+
+    .footnote {
+      position: absolute;
+      bottom: 3em;
+    }
+
+    li p {
+      line-height: 1.25em;
+    }
+
+    .red {
+      color: #fa0000;
+    }
+
+    .large {
+      font-size: 2em;
+    }
+
+    .pull-left {
+      float: left;
+      width: 47%;
+    }
+
+    .pull-right {
+      float: right;
+      width: 47%;
+    }
+
+    .pull-right~p {
+      clear: both;
+    }
+
+    #slideshow .slide .content code {
+      font-size: 0.8em;
+    }
+
+    #slideshow .slide .content pre code {
+      font-size: 0.9em;
+      padding: 15px;
+    }
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <textarea id="source">
+        class: center, middle, vintage, splash
+        # Como linguagens evoluem ― o jeito Python
+        ### por [Felipe **"Bidu"** Rodrigues](https://felipevr.com)
+        ---
+        class: middle, vintage
+        # Aperte a tecla `p` para ver as notas de aula!
+        ---
+        class: middle, vintage
+        # Oi, eu sou o Bidu
+        - felipe@felipevr.com
+        - github.com/fbidu
+        - Ciência da Computação - UNICAMP
+        - Arquiteto de Infraestrutura no [Poppin](https://poppin.app/)
+        ---
+        class: middle, vintage
+        # Agenda
+        1. Linguagens Naturais e Linguagens de programação
+        2. Python**s**
+        3. PEPs
+        4. O Desenvolvimento do Python
+        5. Assignment Expressions
+        ???
+        - Hoje eu vou discutir com vocês sobre as mudanças em linguagens de programação,
+        especialmente como esse processo acontece no Python
+        - Depois eu vou falar um pouco sobre como acontece o desenvolvimento do Python em si
+        - Por último eu vou falar um pouquinho de uma sintaxe nova que vai ser implementada
+        no Python 3.8, que vai ser lançado no fim desse ano
+        ---
+        class: middle, vintage
+        # Qual a diferença entre Português e Python?
+
+        ???
+        - Pra começar a palestra de hoje, vamos considerar as diferenças entre
+        essas duas linguagens
+        - Podemos dizer que Português é uma linguagem "natural", que surgiu de
+        forma mais ou menos espontânea entre as pessoas
+        - Por outro lado, Python é uma linguagem totalmente "fabricada"
+        ---
+        class: middle, vintage
+        ![](img/acordo.png)
+        
+        ???
+        - No entanto, as lingugagens naturais possuem regras, que às vezes são
+        criadas artificialmente através de acordos e tratados
+        - Em 2016 saiu o Novo Acordo Ortográfico do Português, que mudou algumas
+        regras de escrita de alguma palavras
+        ---
+        class: middle, vintage
+        ![](img/acordo2.png)
+        ???
+        - Então nós notamos que uma língua totalmente natural é impossível
+        - Podemos então pensar que a divisão entre linguagens de programação e as outras
+        significa que as línguas para comunicação entre pessoas surgem espontaneamente,
+        e as linguagens de programação são artificiais
+        ---
+        class: middle, vintage
+        # Saluton, kiel vi fartas?
+        ???
+        - Isso significa "Olá, como vão vocês?" em Esperanto, uma língua totalmente
+        artificial e criada pra tentar ser uma "língua universal"
+        ---
+        class: middle, vintage
+        # Ambiguidades
+        ### Onde Línguas Naturais e de Programação começam a se dividir
+        ???
+        - Se tanto linguagens naturais como de programação podem ser artificiais,
+        é nas ambiguidades onde elas começam a se separar
+        ---
+        class: middle, vintage, center
+        ![](img/porca.jpg)
+        ???
+        - As ambiguidades tornam a comunicação menos clara e dependentes de contexto
+        - Para que computadores consigam entender a gente bem é necessário que a comunicação
+        seja o menos ambígua possível
+        - Como a gente pode ver, linguagens naturais e de programação possuem mais semelhanças do
+        que pode parecer num primeiro momento
+        - No entanto, as linguagens naturais podem evoluir de uma forma mais orgânica. A gente pode
+        simplesmente criar uma expressão nova e combinar entre nós o significado dela entre nós
+        - Uma linguagem de programação, por outro lado, precisa de interpretadores, compiladores,
+        conjunto de instruções de execução, etc
+        - Obs.: As linguagens em que a gente escreve código podem conter ambiguidades, mas quando elas
+        são parseadas e enviadas para o processador, essas ambiguidades são resolvidas.
+        ---
+        class: middle, vintage, center
+        # _Python_**s**
+        Observe o plural!
+        ???
+        - Se as linguagens naturais mudam com o tempo, será que isso acontece com as de programação?
+        ---
+        class: middle, vintage
+        ### Python 2:
+        ```python
+        x = int(raw_input())
+        for i in xrange(x):
+          print i
+        ```
+        ### Python 3:
+        ```python3
+        x = int(input())
+        for i in range(x):
+          print(i)
+        ```
+        ???
+        - O primeiro código é válido para o Python 2 e absolutamente inválido para o Python 3.
+        - A função raw_input e xrange não existem no Python 3 e o print mudou de formato
+        - Por outro lado o segundo código é Python 3 válido, faz a mesma coisa que o primeiro e é
+        compatível com Python 2!
+        ---
+        class: middle, vintage, center
+        # PEPs
+        [As Propostas de Melhoria do Python](https://www.python.org/dev/peps/)
+        ???
+        - Python é uma linguagem Open Source, o que significa, entre outras coisas, que todo o código
+        fonte que faz o Python funcionar e público e todos nós podemos acessar e colaborar com ele!
+        - PEPs são documentos que propõem modificações na linguagem, nos métodos usados para
+        decidir assuntos sobre o desenvolvimento e muito mais!
+        - Eles também servem para coletar opiniões da comunidade sobre todos esses tópicos
+        - Um PEP contém um resumo da ideia que está sendo apresentada, o contexto dessa ideia,
+        a motivação e outros pontos importantes como as opiniões favoráveis ou não à ideia
+        ---
+        class: middle, vintage, center
+        ![](img/pep3105-1.png)
+        [PEP 3105](https://www.python.org/dev/peps/pep-3105/) como o `print` virou `print()`
+        ???
+        - Aqui nós temos um exemplo de PEP, a mudança do print como ele era em Python 2 para Pyhon 3
+        ---
+        class: middle, vintage, center
+        ![](img/pep3105-2.png)
+        O PEP inclui uma discussão histórica sobre o motivo da mudança
+        ???
+        - O PEP inicia com uma discussão sobre o contexto da mudança. Por exemplo, fazer de print
+        uma expressão e não uma função era um caso único no Python e que não se encaixava muito bem
+        com o resto. Além disso, alguns casos de uso comuns do print se tornariam mais simples e
+        diretos caso print fosse uma função.
+        ---
+        class: middle, vintage
+        ## Quem decide que um PEP deve ser implementado ou não?
+        ---
+        class: middle, vintage
+        1. Uma discussão se inicia na lista de e-mails [Python-ideas](https://mail.python.org/mailman/listinfo/python-ideas)
+        2. Depois da ideia receber feedbacks e ser melhorada, ela é submetida para a lista [Python-devs](https://mail.python.org/mailman/listinfo/python-dev)
+        3. Mais discussão, mais feedbacks, se tiver um consenso, ela será implementada!
+        ???
+        - Uma ideia não precisa começar com uma descrição completa e rica em detalhes
+        - Ela pode começar simplesmente como uma discussão numa lista de e-mails chamada python-ideas
+        - O autor da ideia deve ouvir os feedbacks que recebeu, melhorar a ideia e, caso decida
+        continuar, ele pode submeter a ideia para a lista Python-Devs
+        - Depois de uma discussão nessa lista, a ideia tem sua forma melhor definida
+        ---
+        class: middle, vintage, center
+        # E se **não** tiver um consenso?
+        ???
+        ---
+        class: middle, vintage, center
+        ![](img/guido.jpeg)
+        
+        Guido van Rossum – Criador do Python
+        ???
+        - Até o ano passado, quando um consenso não era atingido, o Guido que é o criador do Python
+        tinha a palavra final. Ele que decidia se alguma coisa entraria ou não no ar.
+        - Guido possuía um titulo conhecido como BDFL
+        ---
+        class: middle, vintage, center
+        # BDFL
+        O Ditador Benevolente Vitalício
+        ???
+        - BDFL é um título informal dado para criadores de projetos open source importantes, como o
+        Python
+        - Normalmente essas pessoas detêm o "voto decisivo" em questões sobre o avanço daquele projeto
+        ---
+        class: middle, vintage, center
+        ![](img/transfer-of-power.png)
+        ???
+        - Em Julho do ano passado, depois de mais de 25 anos na frente do projeto, Guido decidiu se
+        aposentar da função de BDFL
+        - Ele continua como desenvolvedor do projeto mas não quer mais ser o único responsável por
+        ter a decisão final em questões controversas
+        - Essa decisão do Guido foi tomada logo após a discussão do PEP 572, que a gente vai ver em
+        breve
+        ---
+        class: middle, vintage, center
+        # Conselho Diretor do Python
+
+        Tomando as decisões desde 2019
+        ???
+        - Hoje um grupo de membros da comunidade Python que toma decisões em situação assim
+        - Esse grupo é composto por cinco membros
+        ---
+        class: middle, vintage, center
+        ## Mas, quem pode contribuir para o código do Python em si?
+        ???
+        - Ok, as ideias são elaboradas, discutidas, melhoradas, discutidas de novo,
+        aprovadas... E quem que de fato pode pegar uma ideia dessas e implementar 
+        no código mesmo?
+        ---
+        class: middle, vintage, center
+        # Todos!
+        ???
+        - Todos nós! Como Python é uma linguagem open-source, seu código fonte
+        está disponível na Internet e contribuições são encorajadas!
+        ---
+        class: middle, vintage, center
+        # [Python Developer's Guide](https://devguide.python.org/setup/)
+        ???
+        - A fonte inicial para todo mundo que queira colaborar com o Python é
+        o Developer's Guide
+        - Ele é um guia que descreve em detalhes como obter o código fonte, ver
+        as tarefas que estão abertas para serem feitas, como discutir com outros
+        membros da comunidade e submeter suas mudanças
+        ---
+        class: middle, vintage, center
+        ![](img/github.png)
+        Repositório GitHub do Python
+        ???
+        - Todo o código do Python fica no GitHub
+        ---
+        class: middle, vintage, center
+        ![](img/pr.png)
+        Pull requests
+        ???
+        - O desenvolvimento segue o fluxo clássico de fork-e-pull-request, com
+        discussões acontecendo dentro dos Pull Requests
+        ---
+        class: middle, vintage, center
+        ![](img/dev.png)
+        ???
+        - Caso você não saiba muito sobre git, fork, pull request, etc, o guia
+        do desenvolvedor ajuda você com isso também!
+        ---
+        class: middle, vintage, center
+        # Linguagens de Programação mudam?
+        ???
+        - Enfim, linguagens de programação mudam?
+        ---
+        class: middle, vintage, center
+        # Sim!
+        ---
+        class: middle, vintage, center
+        ## No caso do Python a evolução da linguagem é fortemente ligada com a comunidade
+        ---
+        class: middle, vintage, center
+        ## A comunidade **oferece** ideias
+        ---
+        class: middle, vintage, center
+        ## A comunidade **discute** ideias
+        ---
+        class: middle, vintage, center
+        ## A comunidade **implementa** ideias
+        ---
+        class: middle, vintage, center
+        ## Participe desse processo também!
+        ???
+        - Seja abrindo o Developer's Guide e tentando programar alguma coisa em si
+        seja acompanhando discussões e dando usa opinião, seja simplesmente ficando
+        por dentro das novidades, lendo os relatórios de mudança que vem com cada
+        atualização
+        - Existe muita coisa pra ser feita e inclusive muita coisa que nem envolve
+        programação em si como escrita e melhoria de documentação
+        ---
+        class: middle, vintage, center
+        # Assignment Expressions
+        ### "Expressões de Atribuição"
+        ---
+        class: middle, vintage
+        PEP que descreve a nova sintaxe —
+        [PEP 572](https://www.python.org/dev/peps/pep-0572/)
+        
+        Issue pra acompanhar a implementação do PEP —
+        [Issue 35224](https://bugs.python.org/issue35224)
+        ---
+        class: middle, vintage
+        ```python3
+        idade = 40
+        ```       
+        Atribuição de variável simples
+        ???
+        - Esse exemplo mostra o sinal de igual em ação
+        - Ele se comporta como uma declaração de atribuição
+        ---
+        class: middle, vintage
+        ```python3
+        nomes = ["Chris", "Tim", "Guido"]
+
+        if len(nomes) > 3:
+            print("Nomes tem mais do que 3 itens!")
+        else:
+            tamanho = len(nomes)
+            print(f"Nomes tem apenas {tamanho} itens")
+        ```
+        ???
+        - Aqui temos uma condicional que tem um comportamento bem típico do caso
+        de uso de uma assignment expression
+        - Observe que dentro do if eu faço uma chamada de função e comparo essa
+        chamada com uma constante
+        - Dentro do bloco de código do else, eu quero usar o resultado dessa
+        função!
+        - Uma das formas de fazer isso atualmente é chamando a função novamente
+        ---
+        class: middle, vintage
+        ```python3
+        nomes = ["Chris", "Tim", "Guido"]
+        tamanho = len(nomes)
+
+        if tamanho > 3:
+            print("Nomes tem mais do que 3 itens!")
+        else:
+            print(f"Nomes tem apenas {tamanho} itens")
+        ```
+        ???
+        - Para evitar a chamada dupla, poderíamos extrair a chamada de função,
+        guardar seu resultado e então usar seu valor na condicional e no bloco de código
+        ---
+        class: middle, vintage
+        ```python3
+        nomes = ["Chris", "Tim", "Guido"]
+        
+
+        if (tamanho := len(nomes)) > 3:
+            print("Nomes tem mais do que 3 itens!")
+        else:
+            print(f"Nomes tem apenas {tamanho} itens")
+        ```
+        ???
+        - Usando uma expressão de atribuição, podemos capturar o resultado da
+        expressão direto da declaração de condicional!
+        ---
+        class: middle, vintage
+        ```python3
+        while True:
+            i = input()
+            if i != "q":
+                print(f"Recebi a entrada {i}!")
+            else:
+                break
+        ```
+        ???
+        - Aqui temos um exemplo clássico de loop infinito-input-condicional.
+        - O loop vai sendo executado até que um caractere em especial é digitado
+        - Enquanto esse caractere não for digitado, um processamento específico é feito
+        ---
+        class: middle, vintage
+        ```python3
+        while (i := input()) != "q":
+            print(f"Recebi a entrada {i}!")
+        ```
+        ???
+        - Esse código é o equivalente ao anterior mas usando uma expressão de atribuição
+        ---
+        class: vintage, middle, center
+        # Lembre-se: "Legibilidade importa."
+        — Zen do Python
+        ???
+        - Expressões de atribuição são mais uma ferramenta que podemos usar em
+        nossos códigos
+        - Novas formas de criar códigos também são novas formas de bagunçar código!
+        ---
+        class: vintage
+        ### Problema - receber 3 números inteiros e imprimir a média
+        Duas soluções igualmente válidas:
+        ```python3
+        print(sum([int(input()) for _ in range(3)])/3)
+        ```
+        ```python3
+        numbers = []
+        for _ in range(3):
+            x = int(input())
+            numbers.append(x)
+
+        average = sum(numbers) / 3
+        print(average)
+        ```
+        Qual é mais legível?
+        ???
+        - Legibilidade de código pode ser uma coisa subjetiva, mas existem
+        guias gerais como o PEP8
+        - Vale lembrar que códigos que ocupam "menos linhas" às vezes são menos
+        legíveis e menos expressivos que códigos mais longos
+        - Escolher entre as inúmeras sintaxes possíveis pode ser desafiador mas
+        procurem fazer de fato uma escolha, ao invés de simplesmente escrever o
+        código cegamenter
+        - O PEP-8 ainda não inclui diretivas sobre expressões de atribuição mas
+        o PEP 572 que definiu essas expressões recomenda que seja deixado um
+        espaço antes e depois do operador :=, de forma similar ao feito com o
+        operador =
+        ---
+        class: vintage, middle, center
+        # Obrigado!
+        #### felipe@felipevr.com
+        #### github.com/fbidu
+
+</textarea>
+  <script src="js/remark-latest.min.js" type="text/javascript"></script>
+  <script>
+    var hljs = remark.highlighter.engine;
+  </script>
+  <script src="js/remark.language.js"></script>
+  <script>
+    var slideshow = remark.create({
+      highlightStyle: 'monokai',
+      highlightLanguage: 'remark',
+      highlightLines: true
+    });
+  </script>
+</body>
+
+</html>

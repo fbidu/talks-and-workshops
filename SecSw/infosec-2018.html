@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="keywords" content="api, python, django, rest, fbidu" />
+    <meta name="description" content="Slides for a workshop on REST APIs" />
+    <title>Segurança da Informação e de software</title>
+    <style>
+        @import 'https://fonts.googleapis.com/css?family=Lobster|Kelly+Slab|Raleway|Roboto+Mono';
+        .vintage
+        {
+            background: #425454;
+            color: #F4EEB4;
+            font-family: 'Raleway', sans-serif;
+            line-height: 2em;
+            font-size: 1.5em;
+        }
+
+        .splash h1{
+            font-family: 'Lobster', cursive; !important;
+        }
+
+      .vintage h1, .vintage h2{
+          color: #ABC39F;
+          line-height: 1.3em;
+          font-size: 0.5em;
+          font-family: 'Kelly Slab';
+      }
+
+      .vintage h3
+      {
+          font-family: 'Raleway', sans-serif;
+          font-size: 0.8em;
+          line-height: 1em;
+      }
+
+      .vintage a {
+          color: #55897D;
+          text-decoration: none;
+      }
+      code {
+        background: #e7e8e2;
+        border-radius: 5px;
+        line-height: 1.5em;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Roboto Mono'; }
+      .remark-code-line-highlighted     { background-color: #373832; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: 400;
+        margin-bottom: 0;
+      }
+      .remark-slide-content h1 { font-size: 3em; }
+      .remark-slide-content h2 { font-size: 2em; }
+      .remark-slide-content h3 { font-size: 1.6em; }
+      .footnote {
+        position: absolute;
+        bottom: 3em;
+      }
+      li p { line-height: 1.25em; }
+      .red { color: #fa0000; }
+      .large { font-size: 2em; }
+
+      .pull-left {
+        float: left;
+        width: 47%;
+      }
+      .pull-right {
+        float: right;
+        width: 47%;
+      }
+      .pull-right ~ p {
+        clear: both;
+      }
+      #slideshow .slide .content code {
+        font-size: 0.8em;
+      }
+      #slideshow .slide .content pre code {
+        font-size: 0.9em;
+        padding: 15px;
+      }
+
+      img {
+          max-width: 100%;
+          max-height: 100%;
+      }
+
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+        class: center, middle, vintage, splash
+        # Segurança da Informação e de Software
+        ### por [Felipe "Bidu" Rodrigues](https://felipevr.com)
+        ???
+        - Todo o conteúdo de hoje serve pra qualquer linguagem de programação.
+        - Vou procurar diversificar bastante a apresentação do conteúdo e ele está disponível
+        integralmente no meu GitHub, fiquem a vontade pra acompanhar como vocês preferirem
+        seja só acompanhando a apresentação aqui, fazendo anotações, acompanhando no git, etc
+        ---
+        class: middle, vintage
+        # Aperte a tecla `p` para ver as notas de aula!
+        ---
+        class: middle, vintage
+        # Apresentação
+        - felipe@felipevr.com
+        - Ciência da Computação - UNICAMP
+        - PyLadies Campinas
+        - Desenvolvedor no [LaCTAD/UNICAMP](http://www.lactad.unicamp.br)
+        - Infraestrutura no [Poppin](http://poppin.com)
+        ???
+        - Meu nome é Felipe, eu tenho 26 anos e faço ciência da computação na UNICAMP.
+        - Eu tô na programação faz mais ou menos 10 anos e nesse tempo eu já passei por
+        diversas lingugagens de programação, ferramentas, técnicas e etc até que nos últimos
+        anos eu me envolvi com programação em Python e desenvolvimento Web
+        - Adicionalmente eu trabalho também com infraestrutura no Poppin
+        ---
+        class: middle, vintage
+        # Agenda
+        * Software, Informação e Sociedade
+        * Segurança da Informação e de Software
+        * Segurança e suas Falhas
+        * Os Riscos Mais Comuns e o OWASP Top 10
+        ---
+        class: center, middle, vintage
+        # Software, Informação e Sociedade
+        ### Motivação
+        ???
+        - Desde o surgimento da computação pessoal, o uso de softwares vem crescendo cada vez mais
+        - Há décadas, softwares deixaram de ser coisas utilizadas em universidades e passaram para o cotidiano da população
+        - Atualmente, mesmo o público que não usa softwares diretamente, é dependente dele. Temos sistemas bancários,
+        telefônicos, hospitalares, sistemas de votação eletrônica, câmeras de segurança, etc
+        - Além disso, os dispositivos "IoT" - aparelhos domésticos como cafeteiras, geladeiras, babás eletrônicas e até mesmo lâmpadas - vêm
+        crescendo.
+        - Tudo isso se encaixa no termo...
+        ---
+        class: center, middle, vintage
+        # Computação Ubíqua
+        ### a computação que está em TODOS os lugares
+        ???
+        - Cada vez mais a computação está integrada em nossas vidas.
+        - Uma consequência curiosa disso é que a computação vai, pouco a pouco, desaparecer.
+        - Desaparecer não num sentido de deixar de existir mas no sentido de que as pessoas sequer vão se dar conta de que estão utilizando alguma coisa que envolve software
+        - Em 2015, Eric Schmidt do Google, afirmou que a 'Internet irá desaparecer'. O que ele quis dizer foi precisamente isso. Vai chegar um momento em que nós só nos daremos conta da existência da Internet quando nossa conexão falhar ou quando a conta chegar no fim do mês.
+        - Essa presença cada vez mais forte da computação nas nossas vidas torna cada vez mais importante o cuidado com a segurança dos softwares e da informação.
+        ---
+        class: vintage, center
+        ![Diffie](img/diffie.jpg)
+
+        Whitfield Diffie
+        ???
+        - Esse senhor é o Whit Diffie, ele é um criptógrafo e pioneiro na criptografia de chaves públicas.
+        - Diffie começou seu trabalho com criptografia na década de 70, quando pesquisas nessa área nos EUA eram meio secretas e supervisionadas pela Agência de Segurança Nacional
+        - Uma vez - ainda na década de 70 - sua esposa perguntou pra ele o motivo do interesse dele em criptografia. Ele disse que nós estamos caminhando pra um mundo onde as pessoas vão ter relações
+        importantes, íntimas e de longo prazo com pessoas que nunca encontraram frente a frente. Eu me preocupo com a privacidade nesse mundo e é por isso que eu trabalho com
+        criptografia.
+        - Nós estamos no mundo que Diffie previu
+        ---
+        class: vintage, middle, center
+        # Segurança da Informação e de Software
+        ---
+        class: vintage, middle, center
+        ## Softwares _manipulam_ informações
+        ???
+        - Essa definição pode parecer um pouco simplista mas ela serve muito bem pra gente começar a estabelecer as relações entre software e informação.
+        - Softwares podem receber e guardar informações bem como podem oferecer novas informações com base nas que ele já tem.
+        - Proteger informações envolve diretamente proteger os softwares que conseguem manipulá-la. No entanto, proteger apenas softwares e muito menos
+        proteger apenas o software que nós escrevemos não é o bastante para garantir a segurança das informações armazenadas em algum lugar.
+        ---
+        class: vintage, middle, center
+        ![César](img/cesar.jpg)
+
+        Júlio César
+        ???
+        - A preocupação com a segurança da informação é bem anterior ao início da computação moderna
+        - Um dos primeiros registros de um texto codificado é da Mesopotâmia, datado do ano 1500 A.C.
+        - Júlio César desenvolveu um método clássico de criptografia conhecido como 'Cifra de César'
+        - Na variante original, cada letra do alfabeto era substituída pela letra que vinha 3 posições antes
+        - Cifras de substituição são divertidas, as crianças adoram! Mas não oferecem segurança alguma.
+        ---
+        class: vintage
+        ## A Tríade "CIA" da Segurança da Informação
+        1. Confidencialidade
+        2. Integridade
+        3. Disponibilidade
+        ???
+        - Esses são os 3 princípios considerados fundamentais na Segurança da Informação
+        - Confidencialidade diz respeito ao fato de que uma informação deve ser acessada apenas por pessoas autorizadas
+        - Integridade é a questão de que uma informação não pode ser modificada por partes não autorizadas
+        - Disponibilidade trata de que uma informação deve estar acessível quando ela for necessária
+        ---
+        class: vintage, middle, center
+        ![](img/baby_hack.png)
+
+        Quebra de Confidencialidade
+        ???
+        - A quebra de confidencialidade ocorre quando uma informação é acessada por partes não autorizadas
+        - No caso da notícia, os pais de um bebê tinham uma babá eletrônica que se conectava na internet, um exemplo de dispositivo "IoT"
+        - Um invasor conseguiu acessar a babá e começou a conversar com o bebê no meio da noite
+        - Não ficou claro como isso aconteceu mas é possível que a babá eletrônica não tinha proteção por senha ou possuía uma senha
+        padrão e permitia seu funcionamento sem que essa senha fosse alterada
+        ---
+        class: vintage, middle, center
+        ![](img/scott.jpg)
+
+        Quebra de Integridade
+        ???
+        - O homem na foto se chamava Scott Jerome-Parks e ele era um analista de sistemas
+        - Em 2007 ele precisou de um tratamento que envolvia radiação
+        - Parte do protocolo do tratamento envolvia um técnico programar um modelo em um computador e salvar
+        - O software em questão era conhecido por travar várias vezes e a empresa responsável já havia sido notificada
+        - Ao salvar o tratamento do Scott, o computador começou a travar, exibiu uma mensagem de erro e perguntou
+        se o usuário desejava salvar o modelo que havia sido criado. O usuário escolheu salvar.
+        - No entanto a integridade da informação não foi mantida. O plano foi salvo incorretamente
+        - Como consequência disso, ao invés da dose de radiação recomendada ser utilizada, o equipamento simplesmente
+        abriu todos os paineis que serviam pra controlar a dosagem, fazendo com que ele recebesse uma overdose de radiação
+        - No caso do Scott, além de termos uma falha na gestão da informação via software, ocorreu também um conjunto de falhas humanas
+        - Por exemplo, ele recebeu a dosagem em excesso por três vezes.
+        - Após o caso, a empresa responsável publicou uma atualização do software de controle. Agora, em caso de erro, ao invés do equipamento
+        liberar todos os painéis, ele fecha, impedindo qualquer dosagem de radiação
+        ---
+        class: vintage, middle, center
+        ![](img/mirai.jpg)
+
+        Quebra de Disponibilidade
+        ???
+        - Nos últimos anos, milhares de dispositivos IoT foram contaminados por um malware conhecido como 'Mirai' e suas variantes
+        - O Mirai simplesmente escaneava a internet buscando por dispositivos que ainda utilizavam os nomes de usuário e senhas de fábrica
+        - A rede formada pelo Mirai lançou em 2016 um dos maiores ataques de DDoS da história - aproximadamente 620 Gbps - contra o blog do jornalista de segurança Brian Krebs
+        - Algumas semanas depois um novo ataque, dessa vez contra a companhia de rede Dyn causou problemas de disponibilidade em diversos sistes como Twitter, Netflix e Reddit
+        - Nos dois casos nós tivemos quebra da disponibilidade de informações.
+        - Proteção contra ataques desse tipo é complicado. O site do Krebs estava na infraestrutura da Akamai, uma empresa que conta com uma capacidade de rede incrível e mesmo assim eles precisaram tirar o site do Krebs do ar.
+        ---
+        class: vintage, middle, center
+        # Segurança e suas Falhas
+        ---
+        class: vintage, middle, center
+        ![](img/trump_wall.png)
+
+        The "Trump Wall"
+        ???
+        - Donald Trump quer construir um muro na fronteira EUA-Mex.
+        - De acordo com estimativas, esse muro deve custar alguma coisa entre US$15 e US$25 bilhões de dólares
+        - Mesmo com toda essa grana, basta apenas uma pequena falha ao longo dos 3200km de fronteira entre EUA-Mex para que todo esse investimento perca sentido
+        - Adicionalmente, a travessia física da borda é apenas um dos caminhos pelo qual imigrantes ilegais podem entrar nos EUA
+        - A gente pode traçar uma analogia entre essa situação e a proteção dos nossos softwares.
+        - Proteger um software é uma tarefa complexa e deve ser abordada por diversos ângulos.
+        - Nossos 'muros' são validações de entradas, mecanismos de checagem e tratamento de exceções, boas práticas de código, boas práticas de configuração de servidores, etc
+        - No entanto, uma única falha grave o bastante é o suficiente para colocar tudo em risco
+        ---
+        class: vintage, middle, center
+        ## Segurança é um processo contínuo, em múltiplas camadas e deve fazer parte da cultura da empresa
+        ???
+        - A segurança não deve ser vista como algo que cai exclusivamente sobre a responsabilidade de uma pessoa. Ela deve ser praticada por todos e pensar na segurança é algo que deve acontecer desde a concepção inicial da ideia, começar a ser implementada logo nos primeiros protótipos e melhorada continuamente a cada ciclo
+        - Infelizmente, muitas vezes os programadores veem a segurança como algo que deve ser feita por "outras pessoas" como sysadmins e o pessoal das Operações em geral
+        ---
+        class: vintage, middle, center
+        ![](img/wtf-is-security.jpg)
+        ???
+        - Algumas vezes, segurança é vista como uma perda de tempo. Pra quê gastar tempo com segurança enquanto eu poderia estar trabalhando numa nova feature pro nosso produto?!
+        - Dito isso, segurança muitas vezes é considerada 'invisível'. Não é considerada como uma feature que de alguma forma agrega valor ao produto
+        - Pensa só que a sua empresa acabou de desenvolver a Geladeira do Futuro! Ela mantém um registro automático de tudo que tá lá dentro, sugere receitas com os ingredientes disponíveis, toca Netflix pra vc colocar as séries em dia enquanto você come, equilibra a temperatura interna dela conforme o clima lá fora, te manda um tweet quando algum alimento vai estragar, etc.
+        - Infelizmente, pro consumidor em geral, pouco vai importar quais são os cuidados de segurança de software envolvidos nessa geladeira na hora de tomar a decisão da compra. O consumidor não tem consciência que talvez as credenciais de acesso que a geladeira usa para as contas do Twitter e Netflix podem ser armazenadas de forma insegura.
+        - Muito menos ele tem conhecimento sobre quão segura é a relação entre a placa de comunicação de rede e os outros componentes eletrônicos do funcionamento da geladeira. Imagina só um motor de uma geladeira entrando em pane através de um ataque de rede
+        - Na hora de fazer a propaganda desse produto, nós falamos das características funcionais dele. Ninguém tá interessado em saber que a geladeira usa criptografia AES de 256 bits para proteger as informações do usuário
+        - É responsabilidade dos desenvolvedores e de toda a empresa garantir que essas questões sejam tratadas
+        ---
+        class: vintage, middle, center
+        ## Alguns conceitos básicos
+        ---
+        class: vintage, middle, center
+        Desconfie de TODA informação que chega na sua aplicação através de uma fonte que você não controla totalmente - isso inclui o seu front end!
+        ---
+        class: vintage, middle, center
+        ![](img/hug.jpg)
+
+        Não trate informações de fontes externas assim!
+        ---
+        class: vintage, middle, center
+        ![](img/contaminated.jpg)
+
+        Trate assim!
+        ???
+        - As informações que seu sistema recebe para processamento são um vetor de ataque muito importante
+        - Você não tem controle sobre a máquina do cliente, você não tem como impedir que o usuário digite informações
+        que possam levar seu sistema para estados inesperados
+        ---
+        class: vintage, middle, center
+        ![](img/steve-front.jpg)
+        ???
+        - Por mais cuidado que sua equipe de front tenha com o trabalho deles, no final das contas, o front é executado num
+        dispositivo que você não controla.
+        - Seja um front end web ou mobile, as máquinas que vão rodar o código deles são controladas pelos seus usuários.
+        - Mesmo em situações em que o usuário passa por diversas validações do lado do front end, essas validações devem ser pensadas
+        como algo que contribuem *apenas para a experiência do usuário*. Coisas que *direcionam* o fluxo dele ao longo da aplicação e não
+        que *restringem* todos os fluxos possíveis.
+        - O usuário pode, mesmo com as restrições do front end, executar todo tipo de instruções malucas. Vamos falar mais disso mais tarde
+        mas, por hora, lembrem-se que é fundamental que seu código valide extensivamente as entradas de dados que recebe
+        ---
+        class: vintage, middle, center
+        Não deixe seu sistema "falar demais"
+        ???
+        - Cuidado com logs de erro que são jogados pro front end! Eles podem indicar característica importantes do sistema e
+        até mesmo vazer credenciais e outras informações estratégicas do seu código.
+        - Exceções devem ser tratadas pelo front end!
+        - O usuário digitou a senha errada. É realmente necessário falar que ele errou _apenas_ a senha? Dada essa informação,
+        um possível atacante já sabe que ele acertou o nome de usuário :)
+        ---
+        class: vintage, middle, center
+        Não pense que a sua API "fala pouco"
+        ???
+        - Absolutamente TODOS os endpoints da sua API que são utilizados pelo seu front end podem ser facilmente mapeados!
+        - Mesmo que o front end não seja escrito numa tecnologia aberta, como javascript, um usuário de um app mobile
+        pode facilmente capturar os pacotes de rede que entram e saem do celular e mapear esses endpoints
+        - Isso sem contar com engenharia reversa
+        ---
+        class: vintage, middle, center
+        Cuidado com funcionalidades e códigos velhos/desnecessários/nunca totalmente implementados!
+        ???
+        - Assim como quanto maior um país, mais difícil é construir um murão em volta dele, quanto maior for
+        sua base de código, maior será a superfície de ataque dela.
+        - Além disso, código velho que não é mantido mas fica no ar, não recebe mais atualizações e, com o tempo
+        nós nos esquecemos dele. No entanto, esses códigos continuam disponíveis para ataques!
+        ---
+        class: vintage, middle, center
+        A segurança do servidor que roda seu código é tão importante quanto a segurança do seu código em si!
+        ???
+        - De nada adianta seu código ser super protegido se o servidor que roda ele é extremamente vulnerável.
+        - Além disso, se seu servidor de banco de dados, por exemplo, for vulnerável, toda a informação contida
+        no software pode ser comprometida
+        ---
+        class: vintage, middle, center
+        Fazer sistemas complicados e obscuros como forma de proteção cria uma falsa sensação de segurança.
+
+        O inimigo conhece o sistema - Claude Shannon
+        ???
+        - Alguns desenvolvedores e empresas caem na armadilha de pensar que caso eles escrevam códigos e APIs confusas,
+        um possível ataque será prevenido. No entanto, isso na verdade cria uma falsa sensação de segurança.
+        - Em primeiro lugar, um atacante pode utilizar de ferramentas de análise estática de código para desobfuscar
+        código que rodem do lado do cliente
+        - Em segundo lugar, um código confuso dificulta a sua manutenção e utilização, o que dificulta a melhoria de
+        aspectos de segurança e todo o trabalho da equipe em geral.
+        - Por último, o seu código vai ser utilizado _por alguém_ - notadamente seus clientes válidos. Caso esses
+        pontos terminais não estejam devidamente protegidos, obfuscação alguma irá te salvar.
+        - No fim das contas, ou você obfusca o seu código a ponto dele ser simplesmente inútil e, portanto, nem
+        deveria existir em primeiro lugar, ou a obfuscação é simplesmente um processo sem sentido que cria uma sensação
+        vazia - e errada - de segurança
+        - O enunciado aqui é uma variante dos [Princípios de Kerckhoffs](https://en.wikipedia.org/wiki/Kerckhoffs%27s_principle)
+        e o resumo em baixo veio de Claude Shannon, o pai da teoria da informação
+
+        ---
+        class: vintage, middle, center
+
+        # OWASP Top 10
+        ---
+        class: vintage, middle, center
+        ![](img/owasp.png)
+        ???
+        - Agora eu vou falar um pouco da OWASP e do projeto OWASP Top 10
+        - A OWASP é uma organização internacional, sem fins lucrativos e sem ligação com nenhuma empresa que é dedicada a dar visibilidade as questões de segurança de software, de forma que todos envolvidos no desenvolvimento de um software possam tomar decisões conscientes
+        - O material produzido pela OWASP é bastante vasto e não tem como a gente passar por todo ele ao longo de uma aula
+        - No entanto, é importante que vocês saibam da existência e do trabalho realizado pela OWASP caso vocês, depois dessa aula, se sintam interessados em saber mais sobre segurança e desejam implementar isso no trabalho de vocês
+        - A OWASP é uma fonte fantástica de informações e ela possui diversos guias, procedimentos, recomendações e todo tipo de material relacionado com segurança
+        - Hoje eu vou me focar no projeto OWASP Top 10 - um projeto que seleciona os 10 riscos de segurança mais críticos em aplicações web, com base em milhares de dados coletados de empresas que desenvolvem software e empresas que prestam consultoria em segurança
+        - O relatório de 2017 ainda está em desenvolvimento. Eu vou usar a RC1 dele e o relatório final deve estar pronto até agosto.
+        ---
+        class: vintage, middle, center
+        ![](img/owasp_10.png)
+        ???
+        - Para facilitar a explicação, eu dividi os 10 itens em duplas. Fazendo isso, eu corrompi a ordem original da listagem.
+        ---
+        class: vintage, middle, center
+        ## Injeção e Proteção
+        ???
+        - Injeção diz respeito a entradas não validadas vindas do usuário sendo utilizadas como partes de comandos e consultas realizadas pelo sistema
+        - O exemplo mais clássico é o SQL Injection onde o valor de um item de uma consulta ao banco de dados é fornecido pelo cliente e usado pelo servidor sem validações prévias
+        - Proteção diz respeito à capacidade do seu código responder a ataques ou a tentativas de ataque. O seu software deve não apenas filtrar e validar entradas do usuário, é importante que possíveis tentativas de ataque sejam registradas em algum lugar especial.
+        - É também relevante que exceções que ocorram ao longo do funcionamento do seu software sejam armazenadas em algum arquivo de log e analisadas periodicamente
+        ---
+        class: vintage, middle, center
+        ![](img/xkcd.png)
+        ---
+        class: vintage, middle
+        ### Prevenção
+        #### Injeção
+        - Parametrização
+        - Limpeza
+        - Whitelists
+
+        #### Proteção
+        - Detecção
+        - Resposta
+        - Manutenção
+        ---
+        class: vintage, middle, center
+        ## Autenticação e Controle de Acesso
+        ---
+        class: vintage
+        ### Autenticação vs Autorização
+        ![Home](img/homer-id.jpg)
+        ???
+        * São dois processos diferentes mas que muitos confundem
+        * Autenticação diz respeito a confirmar que uma pessoa de fato é quem ela diz que é
+        * Autorização é determinar que uma pessoa - já devidamente autenticada - pode executar uma determinada ação
+        * Suponha que você foi numa festa a fantasia com seu amigo, que está fantasiado de Homem de Ferro, com máscara e tudo
+        * Então seu amigo pede pra você guardar a carteira dele enquanto ele vai ao banheiro
+        * Depois de um tempo, chega uma pessoa fantasiada de Homem de Ferro e fala "dá minha carteira"
+        * Você fica na dúvida: é mesmo seu amigo?
+        * Só o seu amigo tem *autorização* para acessar aquela carteira
+        * No entanto, você precisa primeiro *autenticar* que aquela pessoa fantasiada é o seu amigo
+        * Quando a pessoa fantasiada arrancar a máscara, você vai de fato autenticar se aquela pessoa é seu amigo ou não
+        * Se ela for, você entrega a carteira. Caso contrário, você segura
+        * No mundo "físico" autenticações são feitas usando documentos como o RG
+        * No meio digital, o meio mais comum de autenticação são usuários e senhas
+        ---
+        class: vintage
+        ### Basic Auth
+        ```
+        http://usuário:senha@servidor.com
+        ```
+        ![basic auth](img/basic-auth.svg)
+        ???
+        * É a forma mais básica de autenticação na Internet
+        * Em cada chamada você passa o usuário e a senha para autenticação
+        * É extremamente simples e fácil de ser implementado
+        * Para aplicações bem simples ainda é utilizado. No entanto, alguns cuidados devem ser tomados
+        * O protocolo HTTP não criptografa nada por padrão, então qualquer ponto no
+        'meio do caminho' entre o cliente e o servidor poderá interceptar o nome de usuário e a senha
+        ---
+        class: vintage
+        ### Autenticações e Autorizações por Token
+        ![token auth](img/token-auth.svg)
+        ???
+        * Diversas implementações diferentes
+        * Basicamente o usuário não mais fornece suas credenciais da API para o cliente
+        * O usuário pede a um servidor de autenticação para gerar um token, que é basicamente um texto, uma string.
+        * Nesse pedido, o usuário conta pro servidor de autenticação, em nome de *qual cliente*
+        ele está gerando aquele token e quais ações o usuário quer permitir que o cliente execute em seu nome
+        * O usuário vai se autenticar nesse servidor com as suas credenciais, este servidor irá validá-las
+        e então irá gerar esse token, guardando ele atrelado à conta do usuário
+        * O servidor de autenticação envia esse token para o cliente
+        * A partir desse momento, o cliente vai utilizar esse token para autenticar suas chamadas à API feitas
+        em nome do usuário
+        * A API, ao receber uma chamada do cliente, pega o token e consulta de qual usuário é aquele token
+        para fazer a autenticação e quais permissões o usuário deu para o portador daquele token
+        ---
+        class: vintage, middle, center
+        ### Tokens vs Basic Auth
+        ???
+        * Algumas diferenças importantes. A primeira é que o usuário não mais envia as credenciais da sua conta
+        ao cliente, mas sim a um servidor de autenticação
+        * Outro ponto importante, no basic auth se um usuário utilizasse 3 clientes diferentes para uma API, por exemplo
+        um cliente Android, um no navegador e outro numa Smart TV
+        * Nesse cenário, como as mesmas credenciais são usadas para todos os clientes, o usuário não consegue remover
+        o acesso de apenas um desses clientes. O máximo que ele pode fazer é mudar a própria senha, revogando o acesso
+        de todos eles
+        * Com uma autenticação baseada em tokens, o usuário pode revogar o acesso de apenas um aplicativo cliente
+        * Mais uma questão importante - o usuário pode dar à clientes diferentes,
+        autorizações diferentes sobre sua conta.
+        * Outro ponto interessante é que com tokens, o usuário e a API podem saber qual *cliente*
+        executou uma determinada ação em nome do usuário pois cada token é gerado para
+        um cliente específico
+        * Atualmente, a maioria das APIs utiliza alguma estrutura de autenticação baseada em tokens
+        ---
+        class: vintage
+        ### *Man in the Middle*
+        ![token auth](img/communication.png)
+        ???
+        * Normalmente nós percebemos a comunicação como sendo simples assim
+        * Do lado esquerdo podemos ter, por exemplo, você no seu navegador querendo abrir a página
+        inicial do Google e do lado direito o servidor do Google
+        * A nossa percepção é de que nós enviamos um pedido para o servidor e ele responde
+        * Em linhas gerais é realmente isso que acontece mas nós precisamos dar um 'zoom'
+        nessa conexão entre os pontos
+        ---
+        class: vintage
+        ### *Man in the Middle*
+        ![token auth](img/real-communication.png)
+        ???
+        * Essa figura é mais próxima da realidade
+        * Entre o cliente e o servidor, existem dezenas de outros computadores
+        * Antes de um pedido ou de uma resposta chegar ao seu destino, ela passa por todos eles
+        * Pode ser o seu roteador de wifi, os computadores do seu provedor de internet, do provedor de internet
+        do servidor de destino, etc etc
+        * Como dá pra gente ver, existem vários pontos no 'meio' da comunicação entre o cliente e o servidor
+        * Além disso, numa comunicação HTTP comum eu posso adicionar MAIS pontos entre quaisquer desses que já
+        existem sem que a comunicação sofra
+        * Tudo isso tem relação com um tipo de ataque de segurança chamado 'Man in the Middle' ou,
+        literalmente, 'Homem no Meio'
+        ---
+        class: vintage
+        ### *Man in the Middle*
+        ![token auth](img/mitm.png)
+        ???
+        * Nesse cenário, um ataquente se posiciona no meio da comunicação
+        * Dessa posição ele consegue interceptar tudo o que é transmitido entre o cliente e o servidor
+        * Ele pode então fazer todo tipo de coisas divertidas - registrar as transações pedidas, igual
+        quando um telefone é 'grampeado', pode alterar as informações transmitidas, censurá-las, etc
+        * Seja lá qual for o mecanismo de autenticação que o cliente e o servidor da API utilizarem,
+        se eles utilizarem do protocolo HTTP sem adicionar nada a mais de segurança, tudo o que for
+        transmitido entre cliente e servidor será interceptável por um atacante
+        * Se você usar Basic Auth, o atacante irá ver as credenciais no formato `usuário:senha@servidor`
+        * Se você usar qualquer forma de autenticação via token, o atacante poderá roubar esse token
+        ---
+        class: vintage
+        ### *Man in the Cloud*
+        ![token auth](img/man-in-cloud.jpg)
+        ???
+        * O ataque de *Man in the Cloud* foi descrito pela primeira vez pela Imperva,
+        na conferência BlackHat de 2015
+        * Nas autenticações via token, o aplicativo cliente recebe um token e o armazena
+        para uso posterior
+        * O ataque é baseado no roubo dessas credenciais que as vezes são armazenadas de forma irregular
+        * Esse token roubado pode ser utilizado para fazer chamadas devidamente autenticadas
+        * Observe que o *Man in the Middle* é focado em informações em trânsito, enquanto o *Man in the Cloud*,
+        em informações armazenadas
+        * Isso é mais uma evidência de como a segurança dos nossos sistemas é uma coisa que nós devemos abordar
+        de uma forma abrangente e cuidadosa
+        ---
+        class: vintage
+        ### HTTPS
+        ![https](img/https.png)
+        ???
+        * Em linhas bem gerais, é uma camada de segurança sobre a comunicação HTTP normal
+        * Nos permite garantir que as inforçãoes transmitidas entre cliente e servidor não sejam lidas
+        nem modificadas por outras pesoas
+        ---
+        class: vintage, middle, center
+        ## XSS e CSRF
+        ???
+        - XSS se refere à cross site scripting. É uma falha que consiste na injeção de código que vai ser utilizado posteriormente para renderizar o front-end da aplicação.
+        - Um exemplo disso é quando um input do usuario contem códigos HTML e JavaScript que não são limpos pelo sistema e esse código acaba interferindo na renderização da página
+        - CSRF é Cross Site Request Forgery e ocorre quando um pedido é falsificado de um site para o seu.
+        - Felizmente ataques de CSRF caíram drasticamente graças ao fato de que muitos frameworks populares incluem por padrão proteção contra CSRF e praticamente todos os navegadores modernos adotam CORS
+        ---
+        class: vintage, middle, center
+        ## Componentes e Configurações
+        ???
+        - A OWASP considera como fonte importante de falhas o uso de componentes - como por exemplo bibliotecas - com vulnerabilidades conhecidas.
+        - É normal ao longo do nosso processo de desenvolvimento nós utilizarmos de pedaços de código que outros programadores desenvolveram
+        - Isso é uma prática muito boa para evitar que a gente tenha o re-trabalho de fazer algo que outra pessoa já fez. No entanto, precisamos ficar atentos com o quão atualizadas essas bibliotecas são
+        - Outro ponto importante é verificarmos se todas as bibliotecas que acabamos por incluir em nossos códigos são _de fato_ utilizadas
+        - A questão das configurações no relatório da OWASP diz respeito principalmente aos componentes do servidor que roda a aplicação
+        - Os softwares instalados no servidor estão atualizados?
+        - Existem serviços desnecessários habilitados no servidor?
+        - As configurações dos servidores ativos estão otimizadas ou rodando no 'default'?
+        ---
+        class: vintage, middle, center
+        ## Proteção de Dados Sensíveis e APIs
+        ---
+        class: vintage, middle, center
+        # Fontes
+        ---
+        class: vintage
+        - [**"A internet vai desaparecer" - Eric Schmidt**](https://oglobo.globo.com/sociedade/tecnologia/a-internet-vai-desaparecer-afirma-eric-schmidt-do-google-15134173)
+        - [**The CIA Triad**](http://www.techrepublic.com/blog/it-security/the-cia-triad/)
+        - [**Scott Jerome-Parks**](http://www.nytimes.com/2010/01/24/health/24radiation.html?pagewanted=1)
+        - [**Stranger hacks family's baby monitor and talks to child at night**](http://sfglobe.com/2016/01/06/stranger-hacks-familys-baby-monitor-and-talks-to-child-at-night/)
+        - [**Sobre o ataque ao Brian Krebs**](https://krebsonsecurity.com/2016/09/krebsonsecurity-hit-with-record-ddos/)
+        - [**The Democratization of Censorship**](https://krebsonsecurity.com/2016/09/the-democratization-of-censorship/)
+        - [**OWASP**](https://www.owasp.org)
+        - [**Defending Against Web Application Vulnerabilities**](https://eden.dei.uc.pt/~mvieira/2012_Computer_DefendWeb.pdf)
+        ---
+        class: vintage, middle, center
+        # Obrigado 😄
+
+</textarea>
+<script src="js/remark-latest.min.js" type="text/javascript"></script>
+<script>
+  var hljs = remark.highlighter.engine;
+</script>
+<script src="js/remark.language.js"></script>
+<script>
+  var slideshow = remark.create({
+      highlightStyle: 'monokai',
+      highlightLanguage: 'remark',
+      highlightLines: true
+    }) ;
+</script>
+</body>
+</html>
