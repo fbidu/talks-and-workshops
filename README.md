@@ -1,5 +1,7 @@
 # Palestras & Cursos
 
+[![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
+
 Esse repositório contém materiais de cursos, palestras, tutoriais, lightining talks e afins que já ministrei em eventos de tecnologia. Algumas das referências à baixo estão hospedadas aqui e outras apontam para repositórios externos.
 
 Uma relação aproximada dos conteúdos e de quando eles foram apresentados é:
@@ -15,3 +17,8 @@ Uma relação aproximada dos conteúdos e de quando eles foram apresentados é:
 [Segurança da Informação e de Software](https://felipevr.com/talks-and-workshops/SecSw/infosec.html#p1) ― Caipyra, 2017; Semana da Computação da USP de São Carlos, 2017
 
 [Arquitetura, Especificação e Implementação de APIs REST](http://felipevr.com/talks-and-workshops/REST%20APIs/pybr_rest_apis_vintage.html#1) ― Python Brasil, 2016
+
+
+## Licença
+
+Todo o trabalho nesse repositório é licenciado com [Creative Commons - Atribuição-CompartilhaIgual 4.0 Internacional.](https://creativecommons.org/licenses/by-sa/4.0/deed.pt_BR)
