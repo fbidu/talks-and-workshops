@@ -111,6 +111,42 @@ humanos-software mas vamos começar com baby steps.
 software que provavelmente é mais próxima do desenvolvedor em si - o código.
 
 
+![](func.png)
+Note:
+* Vamos começar considerando a pergunta - o quê ou quem é o principal leitor
+do nosso código?
+* Pode ser tentador responder que o principal "público-alvo" de um código é
+um computador. Afinal, escrevemos código para fazer a máquina trabalhar
+por nós!
+* Por outro lado, nós sabemos que alguns aspectos de um código como uma escolha
+concisa de nomes para funções, classes e variáveis, uma formatação bem feita
+e coesa, documentação sobre as APIs expostas pelos nossos códigos e etc são
+aspectos importantes.
+
+
+![](modern-compiler.png)
+Note:
+* O que vocês estão vendo agora é um diagrama geral de um compilador,
+com as etapas que um código passa, até começar ali em cima no canto esquerdo
+até chegar em alguma coisa que um computador vai de fato ler, no canto inferior direito. 
+* O nosso código em seu aspecto mais amplo só de fato importa pra esse processo
+até mais ou menos o terceiro quadradinho. Depois da quinta etapa - "translate" -
+nem mesmo a linguagem de programação que a gente usou importa mais. E a gente
+não tá nem na metade do caminho até o computador!
+* Então eu volto a perguntar, será que o nosso código é feito para ser lido pelo
+computador?
+
+
+
+![](josh-calabrese-Ev1XqeVL2wI-unsplash.jpg)
+Note:
+* Hoje, eu vim aqui para defender que não importa o tanto de software que a
+gente usa para escrever software, não importa que um processador esteja
+no final da cadeia de execução, códigos são escritos para serem lido
+sobretudo por seres humanos. Códigos são muito mais próximos de um
+romance do que de um
+
+
 # Ferramentas sozinhas não fazem nada!
 Precisamos de **métodos** <!-- .element: class="small -->
 
