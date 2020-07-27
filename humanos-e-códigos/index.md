@@ -20,7 +20,8 @@ Aperte a tecla `"s"` para ver as notas de apresentação!
 
 Note:
 * Eu vou começar falando sobre algumas características gerais da área de desenvolvimento de software em si.
-* Existe um debate se o termo 'engenharia de software' é ou não uma engenharia de verdade e onde ela se encaixa nisso tudo
+* Existe um debate se a chamada 'engenharia de software' é ou não uma engenharia
+  de verdade e onde ela se encaixa no conjunto de áreas técnicas e científicas
 * Seja como for, a nossa área tem uma capacidade que é rara e muito importante
 
 
@@ -29,16 +30,18 @@ Note:
 _A capacidade de resolver problemas de software fazendo *OUTRO* software_
 
 Note:
-* A introspecção é um aspecto do desenvolvimento de software que pode passar
-  despercebido por nós mas, quando começamos a prestar atenção, ela tá em todo
-  lugar
+* A introspecção - a capacidade que nós temos de construirmos softwares que resolvem
+  problemas que nós temos no processo de construção de softwares - é um aspecto
+  da nossa área que pode passar despercebido por nós mas, quando começamos a
+  prestar atenção, ela tá em todo lugar
 
 
 ![](https://media.giphy.com/media/mXuPww8oyFUCP22tXi/giphy.gif)
 
 Note:
-* Nós criamos nossos softwares gerenciando nossas tarefas em *outro* software como
-  o Jira, Trello, etc
+* Por exemplo, uma "sprint" nossa por de começar com nós ou algum colega usando
+  de softwares como Jira ou Trello para descrever e gerenciar as tarefas que
+  precisamos executar dentro do software que estamos autorando
 
 
 ![](https://media.giphy.com/media/cFkiFMDg3iFoI/giphy.gif)
@@ -58,7 +61,10 @@ Note:
 ![](https://media.giphy.com/media/kwEmwFUWO5Ety/giphy.gif)
 Note:
 * No fim de uma feature, uma única pessoa vai ter contato com uma dezena de softwares
-  diferentes - tudo para que consiga desenvolver um único software
+  diferentes - tudo para que consiga desenvolver um único software.
+* Das nossas IDEs e editores, passando por nossos linters, testers, sistemas de
+  automação e etc o nosso código é processado por uma quantidade gigantesca
+  de outros softwares ao longo do caminho de desenvolvimento
 
 
 ![](https://media.giphy.com/media/zrdUjl6N99nLq/giphy.gif)
@@ -71,7 +77,7 @@ uma coisa incrível.
 * No entanto, essa nossa facilidade em criar softwares novos para resolver problemas
 do processo de criação do software pode fazer com que a gente entre num ciclo
 vicioso, pensando mais em software sobre software sobre software do que sobre
-os outros aspectos do nosso processo como nossos colegas, nosso local de trabalho,
+os outros aspectos do nosso processo criativo como nossos colegas, nosso local de trabalho,
 o mercado em que atuamos, as relações éticas cada vez mais complicadas entre
 geração e uso de dados pessoais de nossos clientes, entre outras coisas.
 
@@ -86,7 +92,7 @@ no impacto bastante real que essas decisões terão na vida pessoal de nossos us
 * Também não podemos mais discutir sobre a sistematização e o escalonamento de 
 certos mercados através de uma solução via software sem considerar as relações
 sociais e comerciais que já estavam envolvidas naquele mercado e que com
-certeza serão aprofundadas por nossos códigos
+certeza serão aprofundadas e intensificadas por nossos códigos
 
 
 ![](dieselgate.jpg)
@@ -127,7 +133,7 @@ aspectos importantes.
 ![](modern-compiler.png)
 Note:
 * O que vocês estão vendo agora é um diagrama geral de um compilador,
-com as etapas que um código passa, até começar ali em cima no canto esquerdo
+com as etapas que um código passa, desde começar ali em cima no canto esquerdo
 até chegar em alguma coisa que um computador vai de fato ler, no canto inferior direito. 
 * O nosso código em seu aspecto mais amplo só de fato importa pra esse processo
 até mais ou menos o terceiro quadradinho. Depois da quinta etapa - "translate" -
@@ -138,7 +144,7 @@ computador?
 
 
 
-![](josh-calabrese-Ev1XqeVL2wI-unsplash.jpg)
+![:scale 50%](josh-calabrese-Ev1XqeVL2wI-unsplash.jpg)
 Note:
 * Hoje, eu vim aqui para defender que não importa o tanto de software que a
 gente usa para escrever software, não importa que um processador esteja

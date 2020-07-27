@@ -30,6 +30,13 @@
 			font-size: 80%;
 			color: gray;
 		}
+
+		.reveal.reveal img {
+			border: none;
+			box-shadow: none;
+			max-height: calc(66vh);
+			max-width: calc(66vw);
+		}
 	</style>
 </head>
 
@@ -48,11 +55,11 @@
 		</div>
 	</div>
 
-    <script src="../revealjs/dist/reveal.js"></script>
-    <script src="../revealjs/plugin/notes/notes.js"></script>
-    <script src="../revealjs/plugin/markdown/markdown.js"></script>
-    <script src="../revealjs/plugin/highlight/highlight.js"></script>
-    <script src="../revealjs/plugin/zoom/zoom.js"></script>
+	<script src="../revealjs/dist/reveal.js"></script>
+	<script src="../revealjs/plugin/notes/notes.js"></script>
+	<script src="../revealjs/plugin/markdown/markdown.js"></script>
+	<script src="../revealjs/plugin/highlight/highlight.js"></script>
+	<script src="../revealjs/plugin/zoom/zoom.js"></script>
 
 	<script>
 		// More info about config & dependencies:
@@ -60,8 +67,8 @@
 		// - https://github.com/hakimel/reveal.js#dependencies
 		Reveal.initialize({
 			history: true,
-            slideNumber: true,
-            plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom ],
+			slideNumber: true,
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom],
 		});
 	</script>
 
