@@ -149,9 +149,81 @@ Note:
 * Hoje, eu vim aqui para defender que não importa o tanto de software que a
 gente usa para escrever software, não importa que um processador esteja
 no final da cadeia de execução, códigos são escritos para serem lido
-sobretudo por seres humanos. Códigos são muito mais próximos de um
-romance do que de um
+sobretudo por seres humanos.
+* A questão central para mim é que software no sentido de um produto digital ou
+no sentido comumente usado junto de métodos de engenharia de software, esses softwares não costumam ser pequenas porções de código escritas em um dia por uma pessoa e
+jogados fora no outro mas sim são obras colaborativas complexas nas quasi ideias são
+materializadas _através_ do código.
+* Em softwares assim, o código atua como um meio de comunicação de conceitos
+abstratos pensados por um colega, compatilhado para outros e desenvolvido
+colaborativamente por muitos.
+* Antes de um código cair num pipeline de deploy que vai levâ-lo para um sistema
+em produção, ele já passou e repassou por diversos olhos e mãos bastante humanos.
+Esquecer ou falhar em prestar atenção de que um dos papeis principais de um
+código é servir como meio de comunicação entre nós e nossos colegas pode nos
+fazer cometer escolhas erradas na hora de julgar quais processos usar, quais
+ferramentas usar, como organizar nosso trabalho, o que avaliar ao revisar
+nossos códigos, entre outras coisas. Afinal, se o objetivo principal do código
+não é bem compreendido, como que vamos otimizar de maneira correta o processo
+de criação dele?
 
+
+![:scale 50%](bob.png)
+Note:
+* Você talvez não esteja colocando muita fé no meu argumento central, de que
+existe uma relação intrincada entre nosso código e os componentes bastante
+humanos do desenvolvimento de software
+* Você talvez pense como um certo autor de 'clean livros' sobre 'clean code'
+nesse 'clean tweet' que alega "quando você lê código, a raça, religião, visão
+política, gênero e oritentação do autor são irrelevantes e invisíveis! A única
+coisa que você pode dizer sobre o auto é a sua habilidade de escrever código
+bem organizado. Nada mais importa"
+
+
+![:scale 50%](euvsbob.png)
+Note:
+* A minha resposta pra essa alegação bem duvidosa do Bob vocês podem ler depois
+no meu Twitter, vou deixar fixado lá. Me sigam gente, eu de vez em quando posto
+coisas sérias também!
+* Como vocês podem ver aqui no começo da minha resposta, eu não sou um grande
+fã dessa visão d'O Software como sendo essa entidade limpa, higienizada, livre
+dos problemas e vieses da humanidade e etc
+* No caso que estamos lidando aqui hoje, existe uma outra observação que eu acho
+mais relevante
+
+
+![:scale 50%](conway.jpg)
+Note:
+* Essa observação é a chamada Lei de Conway. Ela não é uma lei no sentido científico
+do termo, mas ela é uma observação que tem se mostrado válida ao longo de diversos
+testes desde a década de 60
+* A lei de Conway diz que o software criado por uma organização tende a ter uma
+estrutura que é um espelho da forma como a comunicação interna daquela organização
+funciona
+* Isso é, uma companhia que possui uma estrutura extremamente hierárquica e 
+dividida em camadas terá dificuldades em montar uma arquitetura baseada em
+microsserviços, uma vez que essa arquitetura demanda uma comunicação mais
+livre, baseada em pequenos grupos autônomos
+* Nesse ponto nós começamos a notar como a forma de comunicação entre nós, 
+desenvolvedores, com o resto da nossa empresa é marcada em nossos softwares
+* Se você quer fazer uma reorganização na estrutura do software da sua empresa,
+por exemplo migrar de uma arquitetura monolítica em camadas para uma de microsserviços,
+como anda na moda, é bem provável que focar só na arquitetura do código em si
+sem pensar em como as pessoas se comunicam em geral vai causar uma tensão nessa
+estrutura - você vai forçar o software pra um caminho que não encontra espelho
+na forma como a empresa se organiza. Nessa situação, podemos usar a lei de
+conway a nosso favor e, ao invés de fazermos uma observação passiva de como
+estruturas de software seguem estruturas sociais, podemos iniciar uma mudança
+no aspecto social para então favorecer uma mudança na estrutura do software.
+
+
+
+
+# Muito obrigado!
+
+* felipe@felipevr.com
+* [github.com/fbidu](https://github.com/fbidu)
+* Twitter @fevir0
 
 # Ferramentas sozinhas não fazem nada!
 Precisamos de **métodos** <!-- .element: class="small -->
@@ -344,9 +416,3 @@ disso
 * E eu quero agradecer a todos vocês por estarem aqui e me ouvido nesse tempo. Somos nós quem formamos essa comunidade incrível e somos nós que tornamos tudo isso possível
 
 
-
-# Muito obrigado!
-
-* felipe@felipevr.com
-* [github.com/fbidu](https://github.com/fbidu)
-* Twitter @fevir0
