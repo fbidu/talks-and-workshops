@@ -89,7 +89,7 @@ as relações entre o mundo digital e a vida física das pessoas se torna cada
 vez mais complexa.
 * Nós não podemos mais falar de segurança da informação, por exemplo, sem pensar
 no impacto bastante real que essas decisões terão na vida pessoal de nossos usuários
-* Também não podemos mais discutir sobre a sistematização e o escalonamento de 
+* Também não podemos mais discutir sobre a sistematização e o escalonamento de
 certos mercados através de uma solução via software sem considerar as relações
 sociais e comerciais que já estavam envolvidas naquele mercado e que com
 certeza serão aprofundadas e intensificadas por nossos códigos
@@ -134,7 +134,7 @@ aspectos importantes.
 Note:
 * O que vocês estão vendo agora é um diagrama geral de um compilador,
 com as etapas que um código passa, desde começar ali em cima no canto esquerdo
-até chegar em alguma coisa que um computador vai de fato ler, no canto inferior direito. 
+até chegar em alguma coisa que um computador vai de fato ler, no canto inferior direito.
 * O nosso código em seu aspecto mais amplo só de fato importa pra esse processo
 até mais ou menos o terceiro quadradinho. Depois da quinta etapa - "translate" -
 nem mesmo a linguagem de programação que a gente usou importa mais. E a gente
@@ -200,11 +200,11 @@ testes desde a década de 60
 * A lei de Conway diz que o software criado por uma organização tende a ter uma
 estrutura que é um espelho da forma como a comunicação interna daquela organização
 funciona
-* Isso é, uma companhia que possui uma estrutura extremamente hierárquica e 
+* Isso é, uma companhia que possui uma estrutura extremamente hierárquica e
 dividida em camadas terá dificuldades em montar uma arquitetura baseada em
 microsserviços, uma vez que essa arquitetura demanda uma comunicação mais
 livre, baseada em pequenos grupos autônomos
-* Nesse ponto nós começamos a notar como a forma de comunicação entre nós, 
+* Nesse ponto nós começamos a notar como a forma de comunicação entre nós,
 desenvolvedores, com o resto da nossa empresa é marcada em nossos softwares
 * Se você quer fazer uma reorganização na estrutura do software da sua empresa,
 por exemplo migrar de uma arquitetura monolítica em camadas para uma de microsserviços,
@@ -238,7 +238,7 @@ Note:
 * Quem aqui utiliza de TDD ou participa de Code Dojos talvez já esteja mais
   por dentro dessa visão. Quer propor uma coisa nova em um pedaço de código?
   Que tal escrever um teste - que vai falhar - demonstrando o comportamento
-  que você espera? Talvez isso ofereça uma visão mais clara do que você 
+  que você espera? Talvez isso ofereça uma visão mais clara do que você
   pretende.
 * Essa é uma estratégia que eu particularmente uso em projetos open source. A
   discussão se inicia com um pull request que implementa um teste falho. Esse
@@ -317,6 +317,40 @@ Note:
   daquela função vai variar de acordo com estados globais ou se ela os altera.
   Detalhes de implementação, sobre como aquela função faz o que ela diz que
   faz são desnecessários na documentação.
+
+
+
+### Code reviews são a oportunidade de juntar códigos e humanos!
+Note:
+* Uma prática que eu considero extremamente importante em qualquer time são
+  as code reviews. Elas são a oportunidade de uma pessoa olhar para o código
+  da outra e debater o que está acontecendo.
+* Afinal, partindo do princípio que uma das funções do código é a comunicação
+  de ideias, só um outro ser humano consegue de fato dar pra gente um parâmetro
+  se nosso código está cumprindo com seu papel ou não
+* Além do óbvio, mais gente olhando pro código, mais chance de bugs serem resolvidos
+
+
+> Code reviews ajudam a alinhar o "óbvio"
+Note:
+* No tópico anterior eu falei bastante sobre 'não documentar o óbvio', 'não colocar
+  comentários sobre o que o código já diz claramente', mas o 'óbvio' e o 'claro'
+  são coisas bastante relativas e que podem não significar a mesma coisa para todos.
+  Code reviews ajudam nisso
+* Nada melhor do que outro desenvolvedor para julgar se a sua documentação de
+  fato está clara. Cada time tem a sua dinâmica mas eu acho muito importante
+  que deficiências de documentação sejam motivo suficiente para que um pull
+  request seja modificado
+
+
+> Code reviews permitem que a equipe reavalie práticas, ferramentas e técnicas
+Note:
+* Além disso, code reviews são um momento que a equipe pode usar para pensar
+  se o jeito que as coisas tão sendo executadas e se as ferramentas que tão
+  sendo usadas de fato estão servindo aos autores de código! Será que aquela
+  regra do CI tá certa? Será que as regras do linter não precisam ser revistas?
+  A code review pode ser um momento bom para lidar com isso, por mais rápida
+  que seja
 
 
 
@@ -427,8 +461,7 @@ def parse_raw(raw):
     list(map(int, raw)),
     dtype='int64'
   ).reshape((size, size))
-    
-    
+
 class Sudoku:
   @classmethod
   def from_string(cls, raw):
@@ -558,6 +591,35 @@ Note:
   mais fáceis, elas não estão cumprindo com seu papel direito. Não aceite que
   uma tecnologia assistiva funcione "ok". Nós temos um mar de recursos disponíveis
   para nós e esses softwares devem servir à nós!
+
+
+
+# Em resumo...
+* Computação está cada vez mais intrincada com nossa sociedade e complexidades novas surgem disso<!-- .element: class="fragment" data-fragment-index="2" -->
+* Computação se introspecta - software é usado pra fazer software que é usado pra faz...<!-- .element: class="fragment" data-fragment-index="3" -->
+
+
+* Código é um meio de comunicarmos ideias entre nós<!-- .element: class="fragment" data-fragment-index="2" -->
+* Testes, documentação e comentários são formas de "expandir" o poder de comunicação de um código<!-- .element: class="fragment" data-fragment-index="3" -->
+* Code reviews são um momento importante para a equipe discutir o trabalho<!-- .element: class="fragment" data-fragment-index="4" -->
+* Falhas de documentação e comentário devem ser consideradas na review<!-- .element: class="fragment" data-fragment-index="5" -->
+
+
+* APIs são, antes de tudo, interfaces<!-- .element: class="fragment" data-fragment-index="2" -->
+* Uma "face" escondida não é muito utilizável - documente!<!-- .element: class="fragment" data-fragment-index="3" -->
+
+
+* Use da introspecção! Use as ferramentas! Automatize o que der! Deixe os humanos com a parte criativa<!-- .element: class="fragment" data-fragment-index="2" -->
+* Mas não tenha medo de jogar as ferramentas fora. Lembre-se que elas devem servir A NÓS e não o contrário<!-- .element: class="fragment" data-fragment-index="3" -->
+
+
+
+# Referências
+
+[The Language of Programming](https://www.deconstructconf.com/2018/anjana-vakil-the-language-of-programming)
+
+[John Ousterhout: "A Philosophy of Software Design" | Talks at Google](https://www.youtube.com/watch?v=bmSAYlu0NcY)
+
 
 
 # Muito obrigado!
