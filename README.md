@@ -6,6 +6,8 @@ Esse repositório contém materiais de cursos, palestras, tutoriais, lightining 
 
 Uma relação aproximada dos conteúdos e de quando eles foram apresentados é:
 
+[Humanos e Códigos](https://felipevr.com/talks-and-workshops/humanos-e-c%C3%B3digos/#/) ― Cococaheads Campinas, 2020
+
 [Python, Tipos & Pessoas](https://felipevr.com/talks-and-workshops/type-hinting/) ― Python Brasil, 2019
 
 [Como linguagens evoluem ― o jeito Python](https://felipevr.com/talks-and-workshops/assignment_expressions/#p1) ― Python Sudeste, 2019
