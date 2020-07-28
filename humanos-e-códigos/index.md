@@ -218,6 +218,142 @@ no aspecto social para então favorecer uma mudança na estrutura do software.
 
 
 
+## Código Comunica Ideias
+Note:
+* Um ponto importante nessa discussão é a visão de que o código atua como esse
+  meio de transmissão de ideias.
+* Ao considerarmos o código desse jeito, começamos a observar certos padrões de
+  uso
+
+
+```python
+def test_feature_nova():
+  """
+  E se a gente adicionasse essa flag?
+  """
+
+  assert nosso_software.proposta(teste) == "olar!"
+```
+Note:
+* Quem aqui utiliza de TDD ou participa de Code Dojos talvez já esteja mais
+  por dentro dessa visão. Quer propor uma coisa nova em um pedaço de código?
+  Que tal escrever um teste - que vai falhar - demonstrando o comportamento
+  que você espera? Talvez isso ofereça uma visão mais clara do que você 
+  pretende.
+* Essa é uma estratégia que eu particularmente uso em projetos open source. A
+  discussão se inicia com um pull request que implementa um teste falho. Esse
+  teste vai funcionar se a ideia for implementada. A partir dele, podemos
+  discutir muitas coisas legais
+
+
+```python
+# Soma a com b em x
+x = a + b
+
+# Imprime x
+print(x)
+```
+Note:
+* Um ponto de debate quando falamos em código são os comentários. Tem muitas
+  abordagens possíveis.
+* Uma delas que é relativamente famosa é que o seu código deveria ser óbvio
+  tão óbvio que ele não precisa de comentários. Eu acho essa abordagem
+  interessante na teoria mas nem sempre viável e pode ser na verdade
+  contraprodutiva
+* Escrever um código cheio de "gotchas" e usos exóticos da linguagem de fato
+  é ruim e compromete a legibilidade mas, em alguns momentos, nós precisamos
+  lançar mão de estruturas mais complexas. Tentar reescrever essas estruturas
+  de forma 'óbvia' faz tanto sentido quanto escrever uma tese de doutorado
+  usando apenas as 100 palavras mais comuns da língua portuguesa. Você vai
+  acabar com um texto extremamente prolixo e que falha em representar o que
+  você quer de forma clara
+
+
+> Não escreva nos comentários nada que o código em si já não fala
+Note:
+* Uma sugestão que eu dou é que você olhe bem pro seu código e pense se aquele
+  código em si é direto o suficiente. O comportamento dele depende de efeitos
+  colaterais ou estados globais que não estão ali naquele trecho? Ele _causa_
+  efeitos ou mudanças nesses estados que vão repercutir pelo sistema? Esses
+  são exemplos bons de situação em que um comentário é bem-vindo
+
+
+## Documentação != Comentário
+Note:
+* Na mesma área sobre comentários existe um outro ponto de debate que são as
+  documentações. Basicamente uma pessoa que vai usar de uma função, classe,
+  módulo, método, etc, não deveria precisar ler o código em si para utilizar
+  suas ideias
+* Embora o código-fonte desses elementos seja a implementação da ideia em si,
+  uma boa documentação - pensando no escopo do código como uma entidade mais
+  ampla - pode auxiliar bastante no esforço colaborativo
+
+
+> Mas _o quê_ documentar??
+
+
+```python
+def fibonacci(n, cache=None)
+    """
+    Cálculo de fib. recursivo começando de n=0 e
+    percorrendo até o máximo de recursão possível.
+    Aceita um dicionário como cache. Se o cache
+    for vazio, ele não é usado!
+    """
+```
+Note:
+* De novo, muitas escolas de pensamento diferentes, muitos guias diferentes e etc.
+  Considere essa função em Python e a sua docstring "Cálculo de fib. recursivo
+  começando de n=0 e percorrendo até o máximo de recursão possível. Aceita um
+  dicionário como cache. Se o cache for vazio, ele não é usado!"
+* Bom, definitivamente é uma docstring recheada! Mas pense na perspectiva de
+  quem tá usando a função fibonacci. Essa pessoa não precisa saber de muita
+  coisa que está acontecendo aí! O fato da estratégia ser recursiva dificilmente
+  é uma informação tão importante para ser colocada no topo, a questão de um
+  cache vazio não ser usada é bastante óbvia também
+* Enfim, nesse caso, a estratégia que eu gosto de usar é escrever qual o objetivo
+  principal daquela função em uma frase ou duas. Então eu descrevo os argumentos
+  e talvez algum exemplo de uso. Também é importante documentarmos se o comportamento
+  daquela função vai variar de acordo com estados globais ou se ela os altera.
+  Detalhes de implementação, sobre como aquela função faz o que ela diz que
+  faz são desnecessários na documentação.
+
+
+
+> Lembre-se que APIs são INTERFACES
+Note:
+* APIs são estruturas comuns em uma arquitetura moderna. Mas quando pensamos ou
+  discutimos APIs muitas vezes pulamos direto para coisas como REST, verbos
+  HTTP e estruturas de JSON
+* Vamos dar uma revisitada no conceito de API como sendo uma interface
+
+
+> inter _feices_ vs inter _faces_
+Note:
+* O termo em inglês "interfeice" é usual e correto mas eu acho que o termo mais
+  aportuguesado "interface" nos permite enxergar melhor uma interface como ela
+  realmente é - um ponto de comunicação entre duas ou mais faces, entre duas ou
+  mais entidades diferentes, cada uma com suas funcionalidades.
+* E de novo estamos no meio de um problema de comunicação. APIs antes de lidarem
+  com problemas de código, antes de lidarem com questões de implementação elas
+  lidam com uma questão de comunicação entre um lado que oferece um certo recurso
+  e outro lado que usa desse recurso
+* Um código que implementa perfeitamente uma API mas que não oferece nenhuma forma
+  boa dos potenciais clientes descobrirem suas funcionalidades e entender como
+  utilizá-las, faz seu trabalho apenas parcialmente.
+* Se você trabalha em uma companhia que tem uma equipe de back-end e uma de
+  front-end trabalhando juntos, é bem fácil de relembrar o aspecto 'interface'
+  de uma API, mas também pode ser bastante tentador comunicar o que um certo
+  endpoint faz por meios informais. Mensagem no slack, áudio no whatsapp,
+  passar um post-in com a especificação... E os próximos membros da equipe?
+* Lembre-se do código como meio de comunicar ideias! Use e abuse de ferramentas
+  de documentação automática!
+
+
+[OpenAPI Initiative](https://www.openapis.org/)
+
+[OpenAPI.Tools](https://openapi.tools/)
+
 
 # Muito obrigado!
 
@@ -225,17 +361,7 @@ no aspecto social para então favorecer uma mudança na estrutura do software.
 * [github.com/fbidu](https://github.com/fbidu)
 * Twitter @fevir0
 
-# Ferramentas sozinhas não fazem nada!
-Precisamos de **métodos** <!-- .element: class="small -->
 
-Note:
-* E finalmente minha última dica é sobre esse monte de ferramentas que a gente tem
-
-
-* Engenharia de Software é tão legal que ela consegue se introspectar<!-- .element: class="fragment" data-fragment-index="2" -->
-* Tem um problema com desenvolvimento de software? <!-- .element: class="fragment" data-fragment-index="3"-->
-* Construa outro software pra resolver!<!-- .element: class="fragment" data-fragment-index="4" -->
-* git, Jira, pylint, ... <!-- .element: class="fragment" data-fragment-index="5" -->
 
 
 ![so-many-tips](so-many.jpg)
