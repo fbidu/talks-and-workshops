@@ -6,11 +6,11 @@ Esse repositório contém materiais de cursos, palestras, tutoriais, lightining 
 
 Uma relação aproximada dos conteúdos e de quando eles foram apresentados é:
 
-[Humanos e Códigos](https://felipevr.com/talks-and-workshops/humanos-e-c%C3%B3digos/#/) ― Cococaheads Campinas, 2020
+[Humanos e Códigos](https://felipevr.com/talks-and-workshops/humanos-e-c%C3%B3digos/#/) ― Cococaheads Campinas, 2020. [vídeo](https://www.youtube.com/watch?v=KzJhAFU20ns)
 
 [Python, Tipos & Pessoas](https://felipevr.com/talks-and-workshops/type-hinting/) ― Python Brasil, 2019
 
-[Como linguagens evoluem ― o jeito Python](https://felipevr.com/talks-and-workshops/assignment_expressions/#p1) ― Python Sudeste, 2019
+[Como linguagens evoluem ― o jeito Python](https://felipevr.com/talks-and-workshops/assignment_expressions/#p1) ― Python Sudeste, 2019. [vídeo](https://youtu.be/h3Mh86o-0Dc)
 
 [Stairway to Biopython ― Python & Bioinformática](https://github.com/LaCTAD/stairway-to-biopython/) ― Cursos de Bioinformática do [LaCTAD](https://www.lactad.unicamp.br/), 2018s02, 2019s01,2 2019s02
 
