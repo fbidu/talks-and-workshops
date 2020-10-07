@@ -39,7 +39,7 @@ Note:
 ![](https://media.giphy.com/media/mXuPww8oyFUCP22tXi/giphy.gif)
 
 Note:
-* Por exemplo, uma "sprint" nossa por de começar com nós ou algum colega usando
+* Por exemplo, uma "sprint" nossa pode começar com nós ou algum colega usando
   de softwares como Jira ou Trello para descrever e gerenciar as tarefas que
   precisamos executar dentro do software que estamos autorando
 
@@ -152,10 +152,10 @@ no final da cadeia de execução, códigos são escritos para serem lido
 sobretudo por seres humanos.
 * A questão central para mim é que software no sentido de um produto digital ou
 no sentido comumente usado junto de métodos de engenharia de software, esses softwares não costumam ser pequenas porções de código escritas em um dia por uma pessoa e
-jogados fora no outro mas sim são obras colaborativas complexas nas quasi ideias são
+jogados fora no outro mas sim são obras colaborativas complexas nas quais ideias são
 materializadas _através_ do código.
 * Em softwares assim, o código atua como um meio de comunicação de conceitos
-abstratos pensados por um colega, compatilhado para outros e desenvolvido
+abstratos pensados por um colega, compartilhado para outros e desenvolvido
 colaborativamente por muitos.
 * Antes de um código cair num pipeline de deploy que vai levâ-lo para um sistema
 em produção, ele já passou e repassou por diversos olhos e mãos bastante humanos.
@@ -390,7 +390,7 @@ Note:
 
 
 
-## Pardigmas & Fluência
+## Paradigmas & Fluência
 Note:
 * Entrando agora em dois conceitos um pouco mais abstratos temos a noção de
   paradigmas e de fluência.

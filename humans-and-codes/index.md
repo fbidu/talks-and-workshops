@@ -349,29 +349,29 @@ Note:
 
 > inter **face** = a **face** (front, facade) between two or more things
 Note:
-* The English term "interfeice" is usual and correct but I think the term more
-  aportuguesado "interface" allows us to better see an interface like it
-  it really is - a point of communication between two or more faces, between two or
-  more different entities, each with its own functionalities.
+* The English term "interface" is usual and correct but I that sometimes we
+  miss it when discussing APIs. Keep the interface part in mind helps us seing
+  them for what they really are - points of communication between two or more faces, between two or more different entities, each with its own functionalities.
 * And again we are in the middle of a communication problem. APIs before they deal
   with code problems, before they deal with implementation issues they
   deal with a communication issue between a side that offers a certain resource
-  and another side that uses this resource
-* Code that perfectly implements an API but does not offer any form
+  and another side that uses that resource
+* Code that perfectly implements an API but does not offer any way for
   potential customers to discover its functionality and understand how
-  using them, it does its job only partially.
+  to use them, does its job only partially.
 * If you work for a company that has a back-end team and a team of
-  front-end working together, it is very easy to remember the 'interface' aspect
-  of an API, but it can also be very tempting to communicate what a certain
-  endpoint does by informal means. Slack message, audio on whatsapp,
-  pass a post-in with the specification ... What about the next team members?
+  front-end developers working together, it is very easy to remember the
+  'interface' aspect of an API, but it can also be very tempting to
+  communicate what a certain endpoint does by informal means. Slack message,
+  audio on whatsapp, passing around post-it note with the specification and so on.
+  What about the next team members?
 * Remember the code as a means of communicating ideas! Use and abuse of tools
   of automatic documentation!
 
 
-[OpenAPI Initiative] (https://www.openapis.org/)
+[OpenAPI Initiative](https://www.openapis.org/)
 
-[OpenAPI.Tools] (https://openapi.tools/)
+[OpenAPI.Tools](https://openapi.tools/)
 
 
 
@@ -379,29 +379,27 @@ Note:
 Note:
 * Now entering two slightly more abstract concepts we have the notion of
   paradigms and fluency.
-* A paradigm is a way of seeing the world, a way of abstracting the world to
-  within the code. If you program imperatively, for example, you
-  sees your problem as a declaration of states and orders for change
+* A paradigm is a way of seeing the world, a way of abstracting the world into
+  the code. If you program imperatively, for example, you
+  see your problem as a declaration of states and orders for change
   of state. If you program with object orientation, you see your problem
   as being composed of entities that have hierarchical relations, inheritance
   and composition between them.
 
 
-! [: scale 50%] (paradigms.jpg)
+![:scale 50%](paradigms.jpg)
 Note:
-* Each box in this photo is a different paradigm. For our conversation
-  today the observation that I think is most important to make is to remember that a
-  paradigm is not tied to a language and vice versa. If you program Java,
-  declaring a single Main class and writing your entire system in there,
+* Each box in this photo is a different paradigm. For our topic
+  today the observation that I think is most important to make is to remember that a  paradigm is not tied to a language and vice versa. If you program Java,  declaring a single Main class and writing your entire system in there,
   you did anything but object-oriented programming
 * Natural languages ​​like Portuguese and English also "print" paradigms
   in our minds.
-* Similarly, to know a little more about other paradigms besides those
-  our usual ones, can help us to see a problem from different angles,
+* Similarly, to know a little more about other paradigms besides our usual
+  ones, can help us to see a problem from different angles,
   helping us to think of new solutions
 
 
-`` python
+```python
 @dataclass
 class Sudoku:
   grid: np.array
@@ -413,33 +411,33 @@ class Sudoku:
       values.append (int (digit))
     grid = np.array (values, dtype = 'int64'). reshape ((9, 9))
     return cls (grid)
-``
-[Python Multiparadigma] (https://github.com/eliasmistler/europython2020-multi-paradigm-sudoku)
+```
+[Python Multiparadigm](https://github.com/eliasmistler/europython2020-multi-paradigm-sudoku)
 Note:
-* And many languages ​​today actually support multiple paradigms. It is worth noting
-  that 'supporting multiple paradigms' is about giving facilities to use
+* And many languages ​​today actually support multiple paradigms. It is worth
+  noting that 'supporting multiple paradigms' is about giving facilities to use
   the structures of a paradigm. You can do something object-oriented
   in C, but the language itself doesn't give you anything special to do that.
-* I will not go on too long in this example, the link is there for those who want. Was
-  a very interesting talk from EuroPython that year. Here you are
-  seeing an object-oriented Sudoku. The from string function takes a sudoku
-  described as a big text and creates the grid
+* I will not go on too long in this example due to the time available,
+  the link is there for those who want. Was a very interesting talk from
+  EuroPython this year. Here you are seeing an object-oriented Sudoku.
+  The from string function takes a sudoku described as a big text and creates the grid
 
 
-`` python
+``` python
 def parse_raw (raw):
   return np.array (
     list (map (int, raw)),
     dtype = 'int64'
   ) .reshape ((9, 9))
-``
+```
 Note:
-* Here, on the other hand, you have a very functional approach. A procedure
-  unique, without side effects, without making assumptions about the use case, that
-  it simply takes one data entry and returns another.
+* Here, on the other hand, you have a very functional approach. A pure procedure
+  without side effects, without making assumptions about the use case
+  it simply takes one piece of data and returns another.
 
 
-`` python
+```python
 def parse_raw (raw):
   size = int (math.sqrt (len (raw)))
   return np.array (
@@ -452,7 +450,7 @@ class Sudoku:
   def from_string (cls, raw):
     values ​​= parse_raw (raw)
     return cls (values)
-``
+```
 Note:
 * And finally, we have a multiparadigm approach. Object-oriented on the side
   that makes sense, but using features that are very compatible with programming
@@ -461,7 +459,7 @@ Note:
   Note, for example, how the for loop of the first solution is gone!
 
 
-`` c
+```c
 for (i = 0; i <10; i ++) {
   if (list [i]% 2! = 0) {
     return 0
@@ -469,86 +467,87 @@ for (i = 0; i <10; i ++) {
 }
 
 return 1;
-``
-`` python
-for i in range (10):
-  if list [i]% 2! = 0:
+```
+```python
+for i in range(10):
+  if list [i] % 2 != 0:
     return False
 
 return True
-``
+```
 Note:
 * Programming languages ​​as well as natural languages ​​also suffer from the issue
   of fluency. We "program with an accent"
-* When you learn a new language, like English, you learn that 'table' is
-  'table', so when you look at a table, you think 'table' and mentally translate
-  for 'table'
+* When you learn a new language, like Portuguese, you learn that 'table' is
+  'mesa', so when you look at a table, you think 'mesa' and mentally translate
+  for 'mesa'
 * The process works, of course, but it has two important limitations: it is more
-  slower than you associate 'table' with the object itself. Furthermore, with a process
-  what do you think in portuguese and then mentally translate into english,
-  you will never use expressions and words that are unique to English,
-  because they have no equivalent in Portuguese
+  slower than if you associate 'mesa' with the object itself. Furthermore, with a process
+  where you think in your native language and then mentally translate into portuguese,
+  you will never use expressions and words that are unique to Portuguese,
+  because they may have no equivalent in your native language
 * In programming we write code with an accent when we think of the code
-  first in our "native programming language" or the most used and then
+  first in our "native programming language" or the one we most use and then
   we mentally translate the code into the target language
 * Here we have an example of this, a C code that checks if all
   list elements are even, translated "literally" into Python
 
 
-`` python
+```python
 for i in range (10):
-  if list [i]% 2! = 0:
+  if list[i] % 2 != 0:
     return False
 
 return True
-``
-`` python
+```
+```python
 for i in list:
-  if i% 2! = 0:
+  if i % 2 != 0:
     return False
 
 return True
-``
-`` python
-all (i% 2 == 0 for i in list)
-``
+```
+```python
+all(i % 2 == 0 for i in list)
+```
 Note:
-* The translated code literally works, but in Python the for loop can
+* The literally code translated works, but in Python the for loop can
   iterate right through the list. The second solution is a more usual approach.
-  Finally, in python we have the ʻall` operator which, along with another feature of
-  language called list comprehension, will give the last solution. That last
+  Finally, in python we have the `all` operator which, along with another feature of
+  the language called list comprehension, will give the last solution. That last
   solution is the most usual in Python and someone who programs Python thinking first
   in another language and translating, it probably wouldn’t reach it. Unless,
-  of course, that the 'other language' is Haskell, which is where Python was inspired
-  to have this syntax
+  of course, that the 'other language' is Haskell or something like that,
+  which has a similar syntax
 * Fluency is something that we acquire over time, but it is important to know that
   this concept applies to both natural and programming languages.
-  Unfortunately I don't know a generic formula for this, in Python we
-  has the great book "Python Fluent". In general, try to ask yourself 'what does this
-  language is special? What does she have that I have never seen? ' this is a good path
+  Unfortunately I don't know a general recipe for this, in Python we
+  have the great book "Fluent Python" by my friend and fellow Brazilian Luciano
+  Ramalho. In general, try to ask yourself 'what does this
+  language have that's special? What does it have that I have never seen?'
+  this is a good path to discover hidden gems
 
 
 
 # Tools and Processes
 Note:
 * And finally we're back where we started, introspection! How to look
-  for the entire zoo of tools we have available and look at them
+  to the entire zoo of tools we have available and look at them
   thinking about the ideas we discussed today
 * As you can imagine, there is no closed and unique answer! What we can
   to do is follow some principles that can help us make decisions
 
 
-* Having a wide range of options is fantastic <! - .element: class = "fragment" data-fragment-index = "2" ->
-* It allows us to do a lot of cool stuff <! - .element: class = "fragment" data-fragment-index = "3" ->
-* But, especially in a team, consistency is key! <! - .element: class = "fragment" data-fragment-index = "4" ->
+* Having a wide range of options is fantastic <!-- .element: class="fragment" data-fragment-index="2" -->
+* It allows us to do a lot of cool stuff <!-- .element: class="fragment" data-fragment-index="3" -->
+* But, especially in a team, consistency is key! <!-- .element: class="fragment" data-fragment-index="4" -->
 
 
-* List the options, discuss with your team and set a standard <! - .element: class = "fragment" data-fragment-index = "2" ->
-* Don't worry about defining everything, don't worry about getting it right the first time. Define
-some general lines <! - .element: class = "fragment" data-fragment-index = "3" ->
-* Which analyzer will you use? With what settings? <! - .element: class = "fragment" data-fragment-index = "4" ->
-* And then collect feedback from your team on usage, modify your standards
-if necessary <! - .element: class = "fragment" data-fragment-index = "5" ->
+* List the options, discuss with your team and set a standard <!-- .element: class="fragment" data-fragment-index="2" -->
+* Don't worry about defining everything, don't worry about getting it right the first time. Define some general idea <!-- .element: class="fragment" data-fragment-index="3" -->
+* Which analyzer will you use? With what settings? <!-- .element: class="fragment" data-fragment-index="4" -->
+* And then collect feedback from your team about usage, modify your standards
+if necessary <!-- .element: class="fragment" data-fragment-index="5" -->
 
 
 > Git hooks & CI servers
@@ -556,60 +555,59 @@ Note:
 * I quite like to plug these tools into one of two moments - hooks
   and CI. Or even both!
 * Pre-commit hooks are executed before a commit and are useful for
-  we keep the repository free of non-compliant code. The CI for its
-  instead it is useful to run automated tests and etc.
+  keeping the repository free of non-compliant code. The CI is useful for running
+  automated tests and etc.
 * Anyway ...
 
 
-# Remember humans
+# Remember the humans
 Note:
 * This is the most important point of our chat today! If you are going to put a
-  CI server that will check if the code matches the style, for example,
+  CI server that will check if the code matches the style guide, for example,
   why not add in the error message the contact of someone on the team who can
   help with that programming language? Something like 'look, your code
   failed here. Did you install your pre-commit hooks? The instructions are here.
-  If you have problems, talk to bidu at bidu @ etc '
+  If you have problems, talk to bidu'
 * Remember that the CI server, the linter, the hooks they are not there to serve
-  to the code, not to serve the processor, not to please me or anyone
-  another speaker, motivational coach or whatever. They are there to serve
-  the authors and readers of that code and if they don't make these people's lives
-  easier, they are not fulfilling their role properly. Don't accept that
-  an assistive technology works "ok". We have a sea of ​​resources available
-  for us and these software should serve us!
+  the code, they are not there to serve the processor, they aren't there to please
+  me or any other speaker or whatever.
+  They are there to serve the authors and readers of that code and if they don't make those people's lives easier, they are not fulfilling their role properly.
+  Don't accept that an assistive technology works only "ok".
+  We have a sea of ​​resources available to us and these software should serve us!
 
 
 
 # In short...
-* Computing is increasingly intricate with our society and new complexities arise from it <! - .element: class = "fragment" data-fragment-index = "2" ->
-* Computing introspects - software is used to make software that is used to make ... <! - .element: class = "fragment" data-fragment-index = "3" ->
+* Computing is increasingly entrenched with our society and new complexities arise from that <!-- .element: class="fragment" data-fragment-index="2" -->
+* Computing introspects - software is used to make software that is used to make...<!-- .element: class="fragment" data-fragment-index="3" -->
 
 
-* Code is a means of communicating ideas between us <! - .element: class = "fragment" data-fragment-index = "2" ->
-* Tests, documentation and comments are ways to "expand" the communication power of a code <! - .element: class = "fragment" data-fragment-index = "3" ->
-* Code reviews are an important time for the team to discuss the work <! - .element: class = "fragment" data-fragment-index = "4" ->
-* Documentation and comment failures should be considered in the review <! - .element: class = "fragment" data-fragment-index = "5" ->
+* Code is a means of communicating ideas among us<!-- .element: class="fragment" data-fragment-index="2" -->
+* Tests, documentation and comments are ways to "expand" the communication powers of a code<!-- .element: class="fragment" data-fragment-index="3" -->
+* Code reviews are an important time for the team to discuss their work <!-- .element: class="fragment" data-fragment-index="4" -->
+* Documentation and comment failures should be considered in the review <!-- .element: class="fragment" data-fragment-index="5" -->
 
 
-* APIs are, first and foremost, interfaces <! - .element: class = "fragment" data-fragment-index = "2" ->
-* A hidden "face" is not very usable - document! <! - .element: class = "fragment" data-fragment-index = "3" ->
+* APIs are, first and foremost, interfaces <!-- .element: class="fragment" data-fragment-index="2" -->
+* A hidden "face" is not very usable - document them! <!-- .element: class="fragment" data-fragment-index="3" -->
 
 
-* Use of introspection! Use the tools! Automate what you get! Leave humans with the creative part <! - .element: class = "fragment" data-fragment-index = "2" ->
-* But don't be afraid to throw the tools away. Remember that they should serve US and not the other way around <! - .element: class = "fragment" data-fragment-index = "3" ->
+* Use of the introspection! Use the tools! Automate what you can! Leave the humans with the creative part<!-- .element: class="fragment" data-fragment-index="2" -->
+* But don't be afraid to throw the tools away. Remember that they should serve US and not the other way around<!-- .element: class="fragment" data-fragment-index="3" -->
 
 
 
 # References
 
-[The Language of Programming] (https://www.deconstructconf.com/2018/anjana-vakil-the-language-of-programming)
+[Anjana Vakil: "The Language of Programming"](https://www.deconstructconf.com/2018/anjana-vakil-the-language-of-programming)
 
-[John Ousterhout: "A Philosophy of Software Design" | Talks at Google] (https://www.youtube.com/watch?v=bmSAYlu0NcY)
+[John Ousterhout: "A Philosophy of Software Design" | Talks at Google](https://www.youtube.com/watch?v=bmSAYlu0NcY)
 
 
 
 # Thank you very much!
 
 * felipe@felipevr.com
-* [github.com/fbidu((https://github.com/fbidu)
-* Twitter @ fevir0
+* [github.com/fbidu](https://github.com/fbidu)
+* Twitter @fevir0
 
