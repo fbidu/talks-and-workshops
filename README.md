@@ -6,6 +6,10 @@ Esse repositório contém materiais de cursos, palestras, tutoriais, lightining 
 
 Uma relação aproximada dos conteúdos e de quando eles foram apresentados é:
 
+[Humans & Codes (🇺🇸)](https://felipevr.com/talks-and-workshops/humans-and-codes/#/) ― PyCon Estônia, 2020
+
+[Infra ― Histórias Reais de uma Startup Campineira](https://felipevr.com/talks-and-workshops/infra-historias-reais/#/) ― Semana da Computação Unicamp, 2020. [vídeo](https://www.youtube.com/watch?v=rrhutm7HZ7s)
+
 [Humanos e Códigos](https://felipevr.com/talks-and-workshops/humanos-e-c%C3%B3digos/#/) ― Cococaheads Campinas, 2020. [vídeo](https://www.youtube.com/watch?v=KzJhAFU20ns)
 
 [Python, Tipos & Pessoas](https://felipevr.com/talks-and-workshops/type-hinting/) ― Python Brasil, 2019
