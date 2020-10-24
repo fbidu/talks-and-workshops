@@ -197,6 +197,7 @@ Note:
 * Para front web temos o Brython e o PyIodide
 
 
+
 # Python ― Uma Comunidade
 Note:
 * Python possui ao seu redor uma comunidade muito forte espalhada por todo o
@@ -207,7 +208,42 @@ Note:
 ![](pybr2020.png)
 
 
+![](pybr2019.jpg)
+
+
+![](caipyra.jpg)
+
+
+![](caipyra2019.png)
+
+
+![](caipyra2020.png)
+
+
+![](grupy0.jpg)
+
+
+![](grupy1.jpg)
+
+
+![](grupy2.jpg)
+
+
+![](pyladies.png)
+
+
+![](afropython.png)
+
+
+
 # Referências
+[Python Para Zumbis](https://www.youtube.com/channel/UCripRddD4BnaMcU833ExuwA)
+
+[Pense em Python](https://penseallen.github.io/PensePython2e/)
+
+[Automate the Boring Stuff With Python](https://automatetheboringstuff.com/)
+
+[Stairway to Python](https://github.com/fbidu/stairway-to-python)
 
 
 
