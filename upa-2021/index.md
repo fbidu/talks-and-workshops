@@ -208,6 +208,11 @@ a Unicamp o "lugar para se estar" em termos de computação
 
 
 
+* https://www.coursera.org/learn/learning-how-to-learn
+* https://notasdobidu.com/carta-aos-futuros-calouros/
+
+
+
 # Muito obrigado!
 
 
