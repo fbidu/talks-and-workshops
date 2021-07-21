@@ -212,6 +212,7 @@ a Unicamp o "lugar para se estar" em termos de computação
 
 
 
+* Veja a palestra de novo em https://bit.ly/bidu-upa
 * felipe@felipevr.com
 * [github.com/fbidu](https://github.com/fbidu)
 * Twitter @fevir0
