@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title></title>
+
+    <link rel="stylesheet" href="../revealjs/dist/reset.css">
+    <link rel="stylesheet" href="../revealjs/dist/reveal.css">
+    <link rel="stylesheet" href="../revealjs/dist/theme/black.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../revealjs/plugin/highlight/monokai.css" id="highlight-theme">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window
+        .location
+        .search
+        .match(/print-pdf/gi)
+          ? '../revealjs/css/print/pdf.css'
+          : '../revealjs/css/print/paper.css';
+      document
+        .getElementsByTagName('head')[0]
+        .appendChild(link);
+    </script>
+    <style type="text/css">
+      #footer-left {
+        position: absolute;
+        bottom: 1%;
+        left: 1%;
+        font-size: 80%;
+        color: gray;
+      }
+
+      .reveal.reveal img {
+        border: none;
+        box-shadow: none;
+        max-height: calc(66vh);
+        max-width: calc(66vw);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="hidden" style="display:none;">
+      <div id="header">
+        <div id="footer-left">felipe@felipevr.com ― github.com/fbidu</div>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <div class="slides">
+        <section data-markdown="index.md" data-separator="^\n\n\n" data-separator-vertical="^\n\n" data-separator-notes="^Note:" data-charset="UTF-8"></section>
+      </div>
+    </div>
+
+    <script src="../revealjs/dist/reveal.js"></script>
+    <script src="../revealjs/plugin/notes/notes.js"></script>
+    <script src="../revealjs/plugin/markdown/markdown.js"></script>
+    <script src="../revealjs/plugin/highlight/highlight.js"></script>
+    <script src="../revealjs/plugin/zoom/zoom.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        history: true,
+        slideNumber: true,
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom]
+      });
+    </script>
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script type="text/javascript">
+      // 3. On Reveal.js ready event, copy header/footer <div> into each `.slide-background` <div>
+      var header = $('#header').html();
+      if (window.location.search.match(/print-pdf/gi)) {
+        Reveal.configure({showNotes: true});
+        Reveal.configure({showNotes: 'separate-page'});
+        Reveal.addEventListener('ready', function (event) {
+          $('.slide-background').append(header);
+        });
+      } else {
+        $('div.reveal').append(header);
+      }
+    </script>
+  </body>
+
+</html>
