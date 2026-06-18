@@ -2,7 +2,7 @@
 
 [![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
 
-Esse repositório contém materiais de cursos, palestras, tutoriais, lightining talks e afins que já ministrei em eventos de tecnologia. Algumas das referências à baixo estão hospedadas aqui e outras apontam para repositórios externos.
+Esse repositório contém materiais de cursos, palestras, tutoriais, lightning talks e afins que já ministrei em eventos de tecnologia. Algumas das referências abaixo estão hospedadas aqui e outras apontam para repositórios externos.
 
 Uma relação aproximada dos conteúdos e de quando eles foram apresentados é:
 
