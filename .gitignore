@@ -1,4 +1,11 @@
+# Python environments
 venv/
+py3.8/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Editor / OS backup & lock files
 *.*~
 .~lock*
-py3.8/
