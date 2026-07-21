@@ -6,6 +6,11 @@ env/
 # Jupyter
 .ipynb_checkpoints/
 
+# Node / Slidev build artifacts
+node_modules/
+dist/
+.slidev/
+
 # Editor / OS backup & lock files
 *.*~
 .~lock*
