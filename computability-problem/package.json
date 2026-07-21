@@ -1,0 +1,10 @@
+{
+  "name": "computability-problem",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "slidev --open",
+    "build": "slidev build",
+    "export": "slidev export"
+  }
+}
