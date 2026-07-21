@@ -1,0 +1,6 @@
+flowchart TD
+    Q["halts(contrarian, contrarian) ?"]
+    Q -->|"predicts: it halts"| L["contrarian loops forever"]
+    Q -->|"predicts: it loops"| H["contrarian halts"]
+    L --> C1["it does NOT halt — contradiction"]
+    H --> C2["it DOES halt — contradiction"]

@@ -3,6 +3,9 @@ marp: true
 theme: default
 paginate: true
 footer: 'felipe@felipevr.com ― github.com/fbidu'
+style: |
+  .columns { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: center; }
+  .cap { font-size: 0.6em; opacity: 0.6; text-align: center; margin-top: 0.4rem; }
 ---
 
 <!-- _class: lead -->
@@ -26,21 +29,36 @@ A test that never finishes. A CI job stuck forever.
 Wouldn't it be great if something could just **tell you** —
 *before* you run it — whether your program will finish?
 
+<img src="assets/loop.gif" style="height:240px; display:block; margin:1rem auto 0;" />
+
 <!-- Make it personal. Ask for a show of hands: who has had a process stuck in an infinite loop? -->
 
 ---
 
 ## The dream function
 
+<div class="columns">
+<div>
+
 ```python
 def halts(program, data) -> bool:
-    """True  -> program(data) eventually finishes
-       False -> program(data) loops forever"""
-    ...  # somehow, magically, always correct
+    """True  -> finishes
+       False -> loops forever"""
+    ...  # always correct, somehow
 ```
 
-The perfect infinite-loop detector.
-Drop it in your linter and never ship a hang again.
+The perfect infinite-loop detector —
+drop it in your linter and never
+ship a hang again.
+
+</div>
+<div>
+
+<img src="assets/turing-machine.gif" style="width:100%;" />
+<p class="cap">A Turing machine — the 1936 model of "a program"</p>
+
+</div>
+</div>
 
 ---
 
@@ -86,27 +104,11 @@ def contrarian(program):
 
 ---
 
-<!-- _class: lead -->
+## Now run `contrarian(contrarian)` — does it halt?
 
-# Now the forbidden question…
+<img src="assets/contradiction.svg" style="height:330px; display:block; margin:0.5rem auto;" />
 
-```python
-contrarian(contrarian)
-```
-
-## Does it halt?
-
----
-
-## Every answer is wrong
-
-- `halts(contrarian, contrarian)` is **True**
-  → so `contrarian` loops forever → it does **not** halt ✗
-
-- `halts(contrarian, contrarian)` is **False**
-  → so `contrarian` returns → it **does** halt ✗
-
-The prediction contradicts itself *no matter what it says.*
+Every answer contradicts itself.
 
 ---
 
