@@ -1,0 +1,18 @@
+{
+  "name": "talks-and-workshops",
+  "private": true,
+  "workspaces": [
+    "*/",
+    "!revealjs"
+  ],
+  "scripts": {
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "devDependencies": {
+    "@slidev/cli": "52.18.0",
+    "@slidev/theme-seriph": "0.25.0",
+    "playwright-chromium": "1.61.1",
+    "prettier": "3.9.6"
+  }
+}
