@@ -15,3 +15,4 @@ dist/
 # Editor / OS backup & lock files
 *.*~
 .~lock*
+.DS_Store

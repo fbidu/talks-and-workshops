@@ -14,5 +14,8 @@
     "@slidev/theme-seriph": "0.25.0",
     "playwright-chromium": "1.61.1",
     "prettier": "3.9.6"
+  },
+  "allowScripts": {
+    "playwright-chromium@1.61.1": true
   }
 }
