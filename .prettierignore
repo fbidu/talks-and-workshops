@@ -1,0 +1,35 @@
+node_modules/
+**/dist/
+package-lock.json
+
+# Slide decks are off limits. Prettier inserts a blank line after a `---`
+# separator, which turns per-slide frontmatter into ordinary body text --
+# the deck still builds, but the slide loses its layout and renders
+# "layout: two-cols" as visible content. Verified, not theoretical.
+**/slides.md
+
+# Finished talks, left as they were written. Formatting them would be pure
+# churn over decks nobody is going to reopen, and the reveal/Marp HTML has
+# the same fragile frontmatter shape as the rule above.
+.template/
+assignment_expressions/
+format/
+humanos-e-códigos/
+humans-and-codes/
+infra-historias-reais/
+intro-python/
+oop/
+python-basico/
+python-sql/
+REST APIs/
+REST_APIs_DD/
+SecSw/
+tipagem_segurança/
+type-hinting/
+upa-2021/
+
+# reveal.js submodule -- not ours to format
+revealjs/
+
+# Notebook checkpoints
+.ipynb_checkpoints/
