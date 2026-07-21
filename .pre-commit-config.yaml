@@ -1,0 +1,25 @@
+# Run with `prek` (or `pre-commit`, same config format).
+#   prek install     -- wire up the git hook
+#   prek run --all-files
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-json
+      - id: check-yaml
+      - id: check-merge-conflict
+      - id: check-case-conflict
+
+  - repo: local
+    hooks:
+      - id: prettier
+        name: prettier
+        # Local hook rather than mirrors-prettier, which is archived. Uses the
+        # prettier pinned in the root package.json, so Renovate bumps the
+        # formatter along with everything else instead of it drifting on its own.
+        # Exclusions live in .prettierignore, which prettier honours even for
+        # explicitly passed filenames -- keep them in one place.
+        entry: npx --no-install prettier --write --ignore-unknown
+        language: system
+        pass_filenames: true
+        types: [text]

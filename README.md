@@ -24,7 +24,6 @@ Uma relação aproximada dos conteúdos e de quando eles foram apresentados é:
 
 [Arquitetura, Especificação e Implementação de APIs REST](http://felipevr.com/talks-and-workshops/REST%20APIs/pybr_rest_apis_vintage.html#1) ― Python Brasil, 2016
 
-
 ## Licença
 
 Todo o trabalho nesse repositório é licenciado com [Creative Commons - Atribuição-CompartilhaIgual 4.0 Internacional.](https://creativecommons.org/licenses/by-sa/4.0/deed.pt_BR)
