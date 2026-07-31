@@ -14,10 +14,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v6.1.0
 
       - name: Set up Node
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v5.0.0
         with:
           node-version: lts/*
           cache: npm
@@ -33,7 +33,7 @@ jobs:
           enable-cache: true
 
       - name: Cache prek
-        uses: actions/cache@v5
+        uses: actions/cache@v5.1.0
         with:
           path: ~/.cache/prek
           key: prek-${{ runner.os }}-${{ hashFiles('.pre-commit-config.yaml') }}
@@ -45,10 +45,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v6.1.0
 
       - name: Set up Node
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v5.0.0
         with:
           node-version: lts/*
           cache: npm
