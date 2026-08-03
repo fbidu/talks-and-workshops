@@ -10,7 +10,7 @@
     "format:check": "prettier --check ."
   },
   "devDependencies": {
-    "@slidev/cli": "52.18.1",
+    "@slidev/cli": "52.19.0",
     "@slidev/theme-seriph": "0.25.0",
     "playwright-chromium": "1.62.1",
     "prettier": "3.9.6"
