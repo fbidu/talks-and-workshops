@@ -12,7 +12,7 @@
   "devDependencies": {
     "@slidev/cli": "52.19.1",
     "@slidev/theme-seriph": "0.25.0",
-    "playwright-chromium": "1.62.1",
+    "playwright-chromium": "1.63.0",
     "prettier": "3.9.6"
   },
   "allowScripts": {
