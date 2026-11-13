@@ -13,7 +13,7 @@
     "@slidev/cli": "53.1.0",
     "@slidev/theme-seriph": "0.25.0",
     "playwright-chromium": "1.65.0",
-    "prettier": "3.9.10"
+    "prettier": "3.10.1"
   },
   "allowScripts": {
     "playwright-chromium@1.61.1": true
